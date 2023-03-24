@@ -1,0 +1,7 @@
+Name,Value,Special Val,Formula,Rarity 1-10,Value,Description
+Potion,50,0,HP,1,100,Heals 50 HP
+Elixir,20,0,UP,4,300,Heals 20 UP
+Charm,1,0,REVIVE,10,22500,Revives the owner with full HP automatically upon their defeat.
+Holo-Premium-Rare Card,0,0,SELL,8,13000,One of the rarest trading cards in the world. Worth a fortune.
+Tasty Jams,1,1,HPUP,9,9000,Fully recovers the user's HP and UP.
+Paste,0.3,0,HP,3,240,Heals 30% of the user's HP.

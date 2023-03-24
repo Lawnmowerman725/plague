@@ -1,0 +1,12 @@
+Name,Element,Cost (UP),"MoveType S = Strength, M = Magic, A = Accuracy, C = Crit, D = Enemy Defense, G = Enemy Magic",Special,Power Multiplier,Base Accuracy,Check Accuracy,Base Crit,Check Crit,Rarity,Sprite Name,Target Frame,Description
+Pass,0,0,PASS,0,0,0,0,0,0,0,spr_regularAttack,4,Forfeits your turn
+Attack,0,0,SCAD,0,100,95,5,5,20,0,spr_regularAttack,4,A basic attack
+Poke,0,1,SCAD,0,10,85,5,0,5,0,spr_regularAttack,4,Poke the bear
+Ignis,1,4,MAG,0,260,90,10,0,0,0,spr_magicAttack,82,Fire Spell
+Aqua,2,4,MAG,0,240,95,5,0,0,0,spr_magicAttack,82,Water Spell
+Fulgur,3,3,MAG,0,210,92,5,0,0,0,spr_magicAttack,82,Electric Spell
+Terra,4,4,MAG,0,290,80,15,0,0,0,spr_magicAttack,82,Ground Spell
+Ventus,5,4,MAG,0,230,98,0,0,0,0,spr_magicAttack,82,Wind Spell
+Orandi,6,4,MAG,0,250,92,8,0,0,0,spr_magicAttack,82,Holy Spell
+Malefici,7,4,MAG,0,270,85,15,0,0,0,spr_magicAttack,82,Forbidden Spell
+Sana,8,3,HEAL,0,0.3,0,0,0,0,0,spr_magicAttack,82,Heals 30% of user's HP
