@@ -75,9 +75,12 @@ if (!introOver){
 		if (yOff <= 21){
 			playBattleTheme();
 		}
-		yOff -= 30;	
+		yOff -= 30;
+		
+		if (yOff < 0) yOff = 0;
 	
 	} else {
+		yOff = 0;
 		menuDepth = pushContent(global.loadedEnemy.myName + " appeared!", true);
 		if (menuDepth == 1){
 			introOver = true;
@@ -91,11 +94,12 @@ if (!introOver){
 // End of battle
 if (battleOver) {
 	if (global.enemyHP <= 0) visibilityTimer = 100;
-	global.tips = [];
+	global.tips = ["[Z] - Confirm"];
 	
 	switch (menuDepth){
 		case -1:
 			if (beginFade) exit;
+			global.tips = [];
 			instance_destroy(id);
 			audio_stop_sound(snd_battleWin);
 			exit;
@@ -111,26 +115,27 @@ if (battleOver) {
 			break;
 			
 		case 1:
-			menuDepth = pushContent("Gained " + string(getEnemySpoils(SPOILS.ex)) + " experience and "  + string(getEnemySpoils(SPOILS.gold)) + " cheese.", true, false, 1, 2);
+			var rewards = {
+				rewardExp : getEnemySpoils(SPOILS.ex),
+				rewardMoney : getEnemySpoils(SPOILS.gold)				
+			}
+			// Results menu
+			instance_create_depth(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, depth - 100, obj_battleResults, rewards);
+			// Win text
+			instance_create_depth(global.dungeonPixelWidth, 0, depth - 100, obj_winText);
+			
+			stopBattleTheme();
+			winSFX();
+			menuDepth++;
 			break;
 			
 		case 2:
-			global.experience += getEnemySpoils(SPOILS.ex);
-			global.dungeonMoney += getEnemySpoils(SPOILS.gold);
-			levelCheck = (global.experience >= power(global.playerLevel+1, 3));
-			
-			if (levelCheck) {
-				updateLevel();
-				menuDepth = 3;
-				break;
-				
+			// Wait for menus to disappear
+			if (!instance_exists(obj_battleResults) && !instance_exists(obj_winText)){
+				menuDepth = -1;
 			}
-			menuDepth = -1;
-			break;
 			
-		case 3:
-			menuDepth = pushContent("Level Up!", true, false, 3, -1);
-			break;		
+			break;	
 	}
 	
 	exit;	
@@ -144,13 +149,12 @@ if (playerTurn){
 			menuDepth = 0;
 			playerDefending = false;
 			//playerTurn = false;
-			/*
+			
 			if (global.enemyHP <= 0){
 				battleOver = true;
-				winSFX();
-				stopBattleTheme();
 				exit;
-			}*/
+			}
+			
 			instance_create_depth(0, 0, -30, obj_battleWheel, {creatorID : id});
 			if (!turnIconCreated){
 				instance_create_layer(global.dungeonPixelWidth, 0, 0, obj_playerTurn);

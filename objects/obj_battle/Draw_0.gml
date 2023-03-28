@@ -7,18 +7,18 @@ draw_set_color(#000000);
 draw_rectangle(0, 0, global.dungeonPixelWidth, global.dungeonPixelHeight, false);
 draw_set_alpha(1);
 
-if (yOff <= 21 && spriteVisible) draw_sprite_ext(spr_enemyShadow, 0, x + dodgeX + shakePos, y, 1, 1, 0, #FFFFFF, 0.5 * myAlpha);
+if (global.enemyHP > 0){
+	if (yOff <= 21 && spriteVisible) draw_sprite_ext(spr_enemyShadow, 0, x + dodgeX + shakePos, y, scale, scale, 0, #FFFFFF, 0.3 * myAlpha);
 
-
-if (targeted){
-	var col = 175 + 80 * sin(pulseTimer / 10 * pi);
-	if (spriteVisible) draw_sprite_ext(sprite_index, image_index, x + dodgeX + shakePos, y - yOff, 1, 1, 0, make_color_rgb(col, col, col), myAlpha);
+	if (targeted){
+		var col = 175 + 80 * sin(pulseTimer / 10 * pi);
+		if (spriteVisible) draw_sprite_ext(sprite_index, image_index, x + dodgeX + shakePos, y - yOff, scale, scale, 0, make_color_rgb(col, col, col), myAlpha);
+	}
+	else {
+		if (spriteVisible) draw_sprite_ext(sprite_index, image_index, x + dodgeX + shakePos, y - yOff, scale, scale, 0, #FFFFFF, myAlpha);
+	}
 }
-else {
-	if (spriteVisible) draw_sprite_ext(sprite_index, image_index, x + dodgeX + shakePos, y - yOff, 1, 1, 0, #FFFFFF, myAlpha);
-}
 
-draw_sprite(spr_playerTurn, 0, 0, 0)
 
 exit;
 //draw_sprite_ext(spr_idleHud, 0, 0, 0, 1, 1, 0, #FFFFFF, 1)

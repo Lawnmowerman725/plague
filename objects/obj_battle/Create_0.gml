@@ -10,6 +10,8 @@ healthBar = instance_create_layer(x, 400, 0, obj_enemyHealthBar);
 // load the enemy's data
 loadEnemy(getEncounteredEnemy());
 
+
+
 // weaknesses
 //weaknesses = instance_create_layer(x - sprite_width/2, y - sprite_height, 0, obj_weakBubble);
 
@@ -156,24 +158,30 @@ function performSkill(_skill){
 					// If time to show number
 					if (!instance_exists(skillAnim) || skillAnim.readyForNumber){
 						
-						if (playerTurn){
-							enemyDealDamage(oneDamage);
-						}
-						else {
-							playerDealDamage(oneDamage);
-						}
-						
-						instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
-						instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
-						shakeTimer = 16;
-						hitSFX();
-						if (critCheck){
-							critSFX();
-							instance_create_layer(x, y - 510, "Instances", obj_criticalLabel);
-							with (myBack){
-								fxTimer = 40;
+						if (global.enemyHP > 0) {
+							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
+							instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
+							shakeTimer = 16;
+							hitSFX();
+							if (critCheck){
+								critSFX();
+								instance_create_layer(x, y - 510, "Instances", obj_criticalLabel);
+								with (myBack){
+									fxTimer = 40;
+								}
 							}
-						}	
+							
+							if (playerTurn){
+								enemyDealDamage(oneDamage);
+							}
+							else {
+								playerDealDamage(oneDamage);
+							}
+							
+							if (global.enemyHP <= 0){
+								instance_create_depth(x, y, "Instances", depth-20, {sprite: sprite_index})	
+							}
+						}
 						
 						skillDepth = 2;
 											
@@ -306,23 +314,28 @@ function performSkill(_skill){
 					// If time to show number
 					if (!instance_exists(skillAnim) || skillAnim.readyForNumber){
 						
-						instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
-						shakeTimer = 16;
+						if (global.enemyHP > 0){
+							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
+							shakeTimer = 16;						
+						
+							magicSFX();
+							instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
+							with (myBack){
+								fxTimer = 40;
+							}
+							if (playerTurn){
+								enemyDealDamage(oneDamage);
+							}
+							else {
+								playerDealDamage(oneDamage);
+							}
+							if (global.enemyHP <= 0){
+								instance_create_depth(x, y, depth-20, obj_battleKnockAway, {sprite: sprite_index})	
+							}
+						
+						}
+						
 						skillDepth = 2;
-						
-						if (playerTurn){
-							enemyDealDamage(oneDamage);
-						}
-						else {
-							playerDealDamage(oneDamage);
-						}
-						
-						magicSFX();
-						instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
-						
-						with (myBack){
-							fxTimer = 40;
-						}
 												
 					}
 					

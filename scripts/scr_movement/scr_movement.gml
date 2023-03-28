@@ -83,35 +83,47 @@ function performWallAction(wallFunc) {
 
 function performTileAction() {
 	switch (global.dungeon[global.yPos][global.xPos][2]){
-		case 0:
+		case 0: // Nothing
 			break;
-		case 1:
+		case 1: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
 				global.encounterTimer -= random(10);
 			}
 			break;
-		case 2:
+		case 2: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
 				global.encounterTimer -= random(20);
 			}
 			break;
-		case 3:
+		case 3: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
 				global.encounterTimer -= random(30);
 			}
 			break;
-		case 4:
+		case 4: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
 				global.encounterTimer -= random(40);
 			}
+			break;
+			
+		case 5: // Chest
+			break;
+			
+		case 6: // Boss
+			break;
+			
+		case 7: // Shop
+			break;
+			
+		case 8: // Staircase
 			break;
 	}	
 }

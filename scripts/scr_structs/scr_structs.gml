@@ -160,3 +160,10 @@ function Consumable(_name, _value, _special, _formula, _rarity, _price, _descrip
 	formula = _formula;
 	rarity = _rarity;	
 }
+
+function Palette(_name, _description, _sprites, _fog) constructor{
+	myName = _name;
+	description = _description;
+	sprites = _sprites;
+	fog = _fog;
+}

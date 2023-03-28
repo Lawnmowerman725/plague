@@ -4,6 +4,8 @@ global.enemyDatabase = createEnemyDatabase();
 global.weaponDatabase = createWeaponDatabase();
 global.armorDatabase = createArmorDatabase();
 global.skillDatabase = createSkillDatabase();
+global.paletteDatabase = createPaletteDatabase();
+global.loadedPalette = global.paletteDatabase[0];
 global.consumables = {};
 global.consumableDatabase = createConsumableDatabase();
 global.playerLevel = 1;
@@ -24,14 +26,24 @@ function playerMaxCheck(){
 
 function updateLevel(){
 	
-	levelCheck = (global.player.experience != power(global.playerLevel+1, 3));
+	levelCheck = (global.playerLevel < getLevelFromExp(global.player.experience));
 
 	if (levelCheck) {
-		global.playerLevel = floor(power(global.player.experience, 1/3));
+		global.playerLevel = getLevelFromExp(global.player.experience);
 		global.playerHP = getPlayerStat(STATS.hp);
 		global.playerUP = getPlayerStat(STATS.up);
 	}
 	
+}
+
+function expRequiredForLevel(_level){
+	
+	return power(_level, 3) - 1;
+		
+}
+
+function getLevelFromExp(_exp){
+	return floor(power(_exp + 1, 1/3));
 }
 
 function getClass() {

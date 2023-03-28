@@ -12,7 +12,7 @@ for(var i = 0; i < array_length(global.spritesToDraw); i++){
 	wall = global.spritesToDraw[i];
 	coords = wall[0];
 	image = getWallSprite(wall[2]);
-	drawCol = getColor(wall[1], 0);
+	drawCol = getColor(wall[1]);
 	
 	if (!global.inBattle || battleStart <= 50){
 		draw_sprite_pos_fixed(image, 0, coords[0] + shiftDistance, coords[1], coords[2] + shiftDistance, coords[3], coords[4] + shiftDistance, coords[5], coords[6] + shiftDistance, coords[7], drawCol[0], drawCol[1]);

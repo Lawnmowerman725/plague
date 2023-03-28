@@ -298,3 +298,42 @@ function createConsumableDatabase(){
 	ds_grid_destroy(dsGrid);
 	return itemData;
 }
+
+// returns array of dungeon palettes
+function createPaletteDatabase(){
+	
+	var paletteData = [];
+	var dsGrid = load_csv("palettes.csv"); // Get data from csv
+	var newPalette;	
+	
+	for (var i = 1; i < ds_grid_height(dsGrid); i++){
+		var _sprites = [];
+		var _fog = [];
+			
+		for (var j = 3; j < ds_grid_width(dsGrid); j++){
+			array_push(_sprites, asset_get_index(dsGrid[# j, i]));
+		}
+		
+		var splitString = string_split(dsGrid[# 2, i], " ", true);
+		// fog color
+		for (var j = 0; j < array_length(splitString); j += 2){
+			var newCol = real(splitString[j]);
+			var newAlpha = real(splitString[j+1]);
+			array_push(_fog, [newCol, newAlpha]);			
+		}
+		
+		// Create palette struct from data
+		newPalette = new Palette(
+			dsGrid[# 0, i],
+			dsGrid[# 1, i],
+			_sprites,
+			_fog
+		);
+		
+		// Add it to array of palettes
+		array_push(paletteData, newPalette);
+	}
+	
+	ds_grid_destroy(dsGrid);
+	return paletteData;
+}
