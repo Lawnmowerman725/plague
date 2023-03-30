@@ -41,8 +41,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_hedgeBack",
-    "path": "sprites/spr_hedgeBack/spr_hedgeBack.yy",
+    "name": "spr_cornBack",
+    "path": "sprites/spr_cornBack/spr_cornBack.yy",
   },
   "spriteMaskId": null,
   "visible": true,

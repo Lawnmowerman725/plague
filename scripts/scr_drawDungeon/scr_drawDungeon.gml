@@ -253,7 +253,7 @@ function getWallCoords(line, dDepth, parallel){
 		wallCoords[6] = xPosition1;
 		wallCoords[7] = reflectMe(yPosition1, global.dungeonPixelHeight / 2);
 		
-		if (rightSide){
+		if (!rightSide){
 			wallCoords = mirrorWall(wallCoords);
 		}
 		
