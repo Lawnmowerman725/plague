@@ -11,21 +11,22 @@
 /// @param y4
 /// @param colour
 /// @param alpha
+/// @param fadeCorner
 vertex_format_begin();
 vertex_format_add_colour();
 vertex_format_add_position();
 vertex_format_add_normal();
 global.format_perspective = vertex_format_end();
 
+function draw_sprite_pos_fixed(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12 = 0) {
 
-function draw_sprite_pos_fixed(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11) {
-
-	var sprite, subimg, colour, alpha, texture, uvs, px, py, ax, ay, bx, by, cx, cy, s, t, q, can, v_buffer;
+	var sprite, subimg, colour, alpha, alphaArr, texture, uvs, px, py, ax, ay, bx, by, cx, cy, s, t, q, can, v_buffer, cornerFade;
 
 	sprite = argument0;
 	subimg = argument1;
 	colour = argument10;
 	alpha = argument11;
+	cornerFade = argument12;
 	texture = sprite_get_texture(sprite, subimg);
 	uvs = sprite_get_uvs(sprite, subimg);
 
@@ -42,6 +43,60 @@ function draw_sprite_pos_fixed(argument0, argument1, argument2, argument3, argum
 	ay = py[2] - py[0];
 	bx = px[3] - px[1];
 	by = py[3] - py[1];
+	
+	switch cornerFade {
+		 case 1: // left wall fade
+			alphaArr[0] = alpha;
+			alphaArr[1] = 0;
+			alphaArr[2] = alpha;
+			alphaArr[3] = 0;
+			
+			break;
+		case 2: // floor fade
+			switch global.facing {
+				case 0:
+					alphaArr[0] = 0;
+					alphaArr[1] = 0;
+					alphaArr[2] = alpha;
+					alphaArr[3] = alpha;
+					break;
+				case 1: //
+					alphaArr[0] = alpha;
+					alphaArr[1] = 0;
+					alphaArr[2] = alpha;
+					alphaArr[3] = 0;
+					break;
+				case 2:
+					alphaArr[0] = alpha;
+					alphaArr[1] = alpha;
+					alphaArr[2] = 0;
+					alphaArr[3] = 0;
+					break;
+				case 3: //
+					alphaArr[0] = 0;
+					alphaArr[1] = alpha;
+					alphaArr[2] = 0;
+					alphaArr[3] = alpha;
+					break;						
+			}
+			break;	
+			
+		case 3: // right wall fade
+			alphaArr[0] = 0;
+			alphaArr[1] = alpha;
+			alphaArr[2] = 0;
+			alphaArr[3] = alpha;
+			break;	
+		  
+		 default: // no fade
+			alphaArr[0] = alpha;
+			alphaArr[1] = alpha;
+			alphaArr[2] = alpha;
+			alphaArr[3] = alpha;
+			break;			  
+			  
+	}
+	
 
 	can = ax * by - ay * bx;
 
@@ -58,16 +113,16 @@ function draw_sprite_pos_fixed(argument0, argument1, argument2, argument3, argum
 	      q[3] = 1 / s;
 	      v_buffer = vertex_create_buffer();
 	      vertex_begin(v_buffer, global.format_perspective);
-	      vertex_colour(v_buffer, colour, alpha);
+	      vertex_colour(v_buffer, colour, alphaArr[0]);
 	      vertex_position(v_buffer, px[3], py[3]);
 	      vertex_normal(v_buffer, q[3]*uvs[0], q[3]*uvs[1], q[3]);
-	      vertex_colour(v_buffer, colour, alpha);
+	      vertex_colour(v_buffer, colour, alphaArr[1]);
 	      vertex_position(v_buffer, px[2], py[2]);
 	      vertex_normal(v_buffer, q[2]*uvs[2], q[2]*uvs[1], q[2]);
-	      vertex_colour(v_buffer, colour, alpha);
+	      vertex_colour(v_buffer, colour, alphaArr[2]);
 	      vertex_position(v_buffer, px[0], py[0]);
 	      vertex_normal(v_buffer, q[0]*uvs[0], q[0]*uvs[3], q[0]);
-	      vertex_colour(v_buffer, colour, alpha);
+	      vertex_colour(v_buffer, colour, alphaArr[3]);
 	      vertex_position(v_buffer, px[1], py[1]);
 	      vertex_normal(v_buffer, q[1]*uvs[2], q[1]*uvs[3], q[1]);
 	      vertex_end(v_buffer);

@@ -44,6 +44,7 @@ if (global.walkForwardTimer > 0){ // Walk Forward Anim
 	}
 	
 	if (global.walkForwardTimer == floor(2 * global.walkForTime / 3)){ // Finish Movement
+		popInActive = 1;
 		switch (global.facing){
 			case 0:
 				global.yPos -= 2;
@@ -63,7 +64,7 @@ if (global.walkForwardTimer > 0){ // Walk Forward Anim
 	}
 	
 	if (global.walkForwardTimer == floor(global.walkForTime / 3)){ // 1/3
-		
+		popInActive = 2;
 		updateVisuals();
 	}
 	
@@ -71,6 +72,7 @@ if (global.walkForwardTimer > 0){ // Walk Forward Anim
 	
 	if(global.walkForwardTimer == 0){ // Perform landing action
 		performTileAction();
+		popInActive = 0;
 		
 	}
 	exit;
