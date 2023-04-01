@@ -188,6 +188,10 @@ if (playerTurn){
 					tryCreateTargeter(true, "Attempt to flee?");
 					textBoxTimer = 0;
 					break;
+					
+				case BATTLE.analyze:
+					menuDepth = -1;
+					break;
 			}
 			break;
 			

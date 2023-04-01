@@ -51,8 +51,16 @@ function drawWheelIcons(_index, _icons, _offset = 0){
 			mY += 3*sin(arrowTimer / 10 * pi)
 		}
 		mX += 64;
-		mX *= 1.5
-		mY *= 1.5
-		draw_sprite(_icons[i], 0, mX, mY)
+		mX *= 1.5;
+		mY *= 1.5;
+		
+		var drawCol = #FFFFFF;
+		// Grey out invalid icons
+		// Analyze or Item w/o items
+		if (i == 3 || (i == 1 && !hasItems())){
+			drawCol = #333333;
+		}
+		
+		draw_sprite_ext(_icons[i], 0, mX, mY, 1, 1, 0, drawCol, 1);
 	}
 }

@@ -4,7 +4,37 @@ pX = global.xPos;
 pY = global.yPos;
 pFace = global.facing;
 
-//decreaseTimer();
+
+// Check for dungeon event
+if (eventWall > WALL.stop) {
+	global.inBattle = true;
+	global.idleTimer = 0;
+	
+	if (eventWall == WALL.locked && global.exitOpen == false) {
+		resetAfterEvent();
+		exit;
+	}
+	
+	// Open door
+	if (eventTimer == 0){
+		editForwardWall(0, PALETTE.doorOpen);
+		updateVisuals();
+	}
+	
+	// pause before beginning event
+	if (eventTimer < 60){
+		eventTimer+=3;
+	}
+	else {
+		if (!instance_exists(obj_dungeonEvent)){
+			instance_create_depth(0, 0, depth - 1, obj_dungeonEvent, {myEvent: eventWall})	
+		}
+	}
+	
+	exit;
+}
+
+// Cooldown after turning
 if (turnCooldown > 0){
 	turnCooldown--;	
 }
@@ -34,7 +64,8 @@ if (global.inBattle && !instance_exists(obj_battle)){
 	battleEnding = true;	
 }
 
-if (global.walkForwardTimer > 0){ // Walk Forward Anim
+// Walk Forward Anim
+if (global.walkForwardTimer > 0){
 	
 	global.idleTimer = 0;
 	
@@ -80,6 +111,7 @@ if (global.walkForwardTimer > 0){ // Walk Forward Anim
 	
 }
 
+// Turn anim
 if (global.turnAnimation != 0){
 	
 	global.idleTimer = 0;
@@ -109,6 +141,7 @@ if (global.turnAnimation != 0){
 	
 }
 
+// Movement and turning
 if (!global.inBattle && turnCooldown <= 0){
 	if (global.idleTimer < 300){
 		global.idleTimer += 1;
@@ -117,6 +150,7 @@ if (!global.inBattle && turnCooldown <= 0){
 	getInput();
 }
 
+// If change, update visuals
 if (pX != global.xPos || pY != global.yPos || pFace != global.facing){
 	
 	updateVisuals();

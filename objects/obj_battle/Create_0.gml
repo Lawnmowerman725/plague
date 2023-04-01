@@ -1,6 +1,6 @@
 // set position
 x = global.dungeonPixelWidth/2
-
+global.battleCursorMemory1 = 4;
 // test
 global.playerHP = 10;
 
@@ -9,7 +9,6 @@ healthBar = instance_create_layer(x, 400, 0, obj_enemyHealthBar);
 
 // load the enemy's data
 loadEnemy(getEncounteredEnemy());
-
 
 
 // weaknesses
@@ -179,7 +178,7 @@ function performSkill(_skill){
 							}
 							
 							if (global.enemyHP <= 0){
-								instance_create_depth(x, y, "Instances", depth-20, {sprite: sprite_index})	
+								instance_create_depth(x, y, depth-20, obj_battleKnockAway, {sprite: sprite_index})	
 							}
 						}
 						

@@ -80,3 +80,10 @@ function minCheck(){
 	}
 }
 
+function addSkill(_index){
+	array_insert(global.player.skills, array_length(global.player.skills)-1, _index);
+}
+
+function resetSkills(){
+	global.player.skills = [1, 0];
+}

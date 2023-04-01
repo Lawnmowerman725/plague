@@ -3,7 +3,6 @@
 var curLevelExp = expRequiredForLevel(global.playerLevel);
 var expFromBase = global.player.experience - curLevelExp;
 var expToNextLevel = expRequiredForLevel(global.playerLevel + 1) - curLevelExp;
-show_debug_message(string(curLevelExp) + " " + string( expFromBase) + " " + string(expToNextLevel));
 
 barPercent = expFromBase / expToNextLevel;
 

@@ -20,3 +20,13 @@ function alterItemCount(_name, _amount = 1){
 function hasItem(_name){
 	return global.consumables[$ _name] > 0;
 }
+
+function hasItems(){
+	// Get items with more than 1 item
+	for (var i = 0; i < array_length(global.consumableDatabase); i++){
+		if (hasItem(global.consumableDatabase[i].myName)){
+			return true;
+		}
+	}
+	return false;	
+}

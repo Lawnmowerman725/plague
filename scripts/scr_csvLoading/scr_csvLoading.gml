@@ -292,7 +292,7 @@ function createConsumableDatabase(){
 		array_push(itemData, newItem);
 		
 		// Add to inventory with count
-		variable_struct_set(global.consumables, newItem.myName, 3);
+		variable_struct_set(global.consumables, newItem.myName, 0);
 	}
 	
 	ds_grid_destroy(dsGrid);
@@ -310,6 +310,7 @@ function createPaletteDatabase(){
 		var _sprites = [];
 		var _fog = [];
 			
+		array_push(_sprites, pointer_null);
 		for (var j = 3; j < ds_grid_width(dsGrid); j++){
 			array_push(_sprites, asset_get_index(dsGrid[# j, i]));
 		}

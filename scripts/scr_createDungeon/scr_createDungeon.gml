@@ -7,10 +7,15 @@ global.turnAnimation = 0;
 global.walkForTime = 12;
 global.encounterTimer = 100;
 global.idleTimer = 0;
+global.exitOpen = true; // floor key or boss req
+global.dungeonChests = []; // chests reference this array for their contents
+global.dungeonShop = []; // similar to chests
+global.dungeonNPC = []; // stores npc messages
 
 randomize();
 
 global.battleCursorMemory1 = 4;
+
 /* Default	// For Walls -> 0 is Display sprite, 1 is Function. If function is odd, solid wall
 			// For Tiles -> 0 is Floor Sprite, 1 is Ceiling Sprite, 2 is Function
 global.dungeon = [
@@ -35,6 +40,22 @@ global.dungeon = [
 	[      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      []]
 ];*/
 
+/* 
+// wall actions
+enum WALL
+{
+	none,		// 0
+	stop,		// 1
+	stairs,		// 2
+	locked,		// 3
+	shop,		// 4
+	chest,		// 5
+	emptyChest,	// 6
+	npc,		// 7
+	boss		// 8
+}
+*/
+
 global.dungeon = [];
 
 function loadFloor(_floor){
@@ -46,6 +67,16 @@ function loadFloor(_floor){
 			
 			// load palette
 			
+			
+			global.dungeonNPC = [
+				["Welcome to Plague!", "Your goal here is to reach the top of this dungeon.", "Each floor has an exit staircase, and this dungeon happens to have 4 floors.", "Good luck reaching the exit! And watch out for monsters!"],
+				["Each floor can have a variety of treasures on it.", "Opening chests can even result in learning new skills for battle!", "It might be wise to loot an entire floor before moving on to the next."]
+			];
+			global.dungeonChests = [
+				[DROPS.consumables, 0, 4], // four potions
+				[DROPS.skills, 5, 1], // ignis
+				[DROPS.skills, 12, 1] // sana
+			];
 			
 			global.dungeon = [
 			[      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      []],
@@ -76,6 +107,24 @@ function loadFloor(_floor){
 		case 2:
 		
 			// Second floor, corn maze
+			global.dungeonNPC = [
+				["On some floors, opening the way to the exit may require some work.", "On this floor, the door to the exit is locked.", "You'll need to find the key somewhere on this floor before moving on."],
+				["Sometimes, these dungeons will house false walls.", "False walls look exactly like your everyday wall, but you can actually walk right through them.", "False walls will appear as empty on the map, so it may prove wise to watch your mini map."],
+				["It's always possible to use items and skills outside of battle.", "By pressing ENTER, you can bring up the pause menu.", "From here, you can use healing items and skills at your heart's content."]
+			];
+			global.dungeonChests = [
+				[DROPS.key, 0, 1], // key
+				[DROPS.skills, 7, 1], // fulgur
+				[DROPS.skills, 2, 1], // brute force
+			];
+			global.dungeonShop = [
+				[DROPS.consumables, 0, 4], // potions
+				[DROPS.skills, 5, 1], // elixers
+				[DROPS.skills, 12, 1], // hawk strike
+				[DROPS.skills, 10, 1] // orandi
+			];
+			
+			
 			global.dungeon = [
 				[      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],		 []],
 				[ [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
@@ -85,8 +134,8 @@ function loadFloor(_floor){
 				[ [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
 				[      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 0, 1],		 []],
 				[ [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 3, 0], [ 5, 8, 0], [ 3, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
-				[      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 9, 0],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 0, 1],		 []],
-				[ [ 1, 1], [ 5, 7, 0], [ 9, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [11, 0], [ 5, 7, 0], [ 3, 0], [ 5, 8, 4], [ 3, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 9, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
+				[      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 1, 1],      [],   [ 9, 70],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 0, 1],		 []],
+				[ [ 1, 1], [ 5, 7, 0], [ 9, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [11, 0], [ 5, 7, 0], [ 3, 0], [ 5, 8, 4], [ 3, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 9, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
 				[      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 3, 0],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],		 []],
 				[ [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 0, 0], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
 				[      [],    [ 0, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],		 []],

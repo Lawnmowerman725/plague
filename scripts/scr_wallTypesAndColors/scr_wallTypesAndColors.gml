@@ -5,9 +5,7 @@ function getColor(index){
 }
 
 function getWallSprite(index){
-	var val = index-1;
-	var spr = global.loadedPalette.sprites;
-	return spr[val];
+	return global.loadedPalette.sprites[index];
 }
 
 function loadPalette(_index){

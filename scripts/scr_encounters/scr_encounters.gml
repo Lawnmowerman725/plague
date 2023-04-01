@@ -5,10 +5,7 @@ global.encounterTable = [
 ];
 
 function tryEncounter(){
-	//if (checkForwardWall()){
-		instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight * 4/5, "Enemy", obj_battle);
-	//}
-	
+	instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight * 4/5, "Enemy", obj_battle);	
 }
 
 function getEncounteredEnemy(){
