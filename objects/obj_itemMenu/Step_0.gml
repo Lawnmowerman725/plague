@@ -1,5 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
+
+// update description box
+descriptionBox.myStruct = validItems[currentIndex];
 
 // Decrease the offset value
 if (abs(offset) > 35){

@@ -11,6 +11,7 @@ function yPositionFormula(_index){
 
 itemMenuList = [];
 
+
 // Get items with more than 1 item
 validItems = [];
 for (var i = 0; i < array_length(global.consumableDatabase); i++){
@@ -24,6 +25,10 @@ if (array_length(validItems) == 0){
 	instance_destroy(id);
 	exit;	
 }
+
+var selectedStruct = validItems[currentIndex];
+descriptionBox = instance_create_depth(global.dungeonPixelWidth * 0.05, global.dungeonPixelHeight * 0.7, depth - 20, obj_descriptionBox, {category : DROPS.consumables, myStruct : selectedStruct});
+
 
 for (var i = 0; i < array_length(validItems); i++){
 		var myY = yPositionFormula(i);

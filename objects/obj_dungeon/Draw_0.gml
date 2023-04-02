@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (instance_exists(obj_dungeonEvent)){
+	if (myEvent.drawMySprite) exit;	
+}
+
 // Draw Background
 if (!global.inBattle || battleStart <= 50) draw_self();
 
@@ -51,7 +55,6 @@ if (global.inBattle){
 	draw_rectangle(0, 0, global.dungeonPixelWidth, global.dungeonPixelHeight, false);
 	draw_set_alpha(1);
 }
-
 
 
 

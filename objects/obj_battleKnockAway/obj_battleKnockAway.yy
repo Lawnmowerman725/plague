@@ -39,8 +39,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_dale",
-    "path": "sprites/spr_dale/spr_dale.yy",
+    "name": "spr_dale1",
+    "path": "sprites/spr_dale1/spr_dale1.yy",
   },
   "spriteMaskId": null,
   "visible": true,

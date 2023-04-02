@@ -28,8 +28,8 @@ function getForwardWallStoredValue(){
 			wallVal = global.dungeonNPC[getLastDigits(wallVal)];
 			break;
 		case WALL.boss:
-			// Returns the enemy in the enemy database
-			wallVal = global.enemyDatabase[getLastDigits(wallVal)];
+			// Returns the index of the enemy database
+			wallVal = getLastDigits(wallVal);
 			break;
 	}
 	

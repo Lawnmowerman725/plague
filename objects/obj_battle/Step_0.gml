@@ -157,7 +157,7 @@ if (playerTurn){
 			
 			instance_create_depth(0, 0, -30, obj_battleWheel, {creatorID : id});
 			if (!turnIconCreated){
-				instance_create_layer(global.dungeonPixelWidth, 0, 0, obj_playerTurn);
+				instance_create_layer(global.dungeonPixelWidth, 0, "Enemy", obj_playerTurn);
 				turnIconCreated = true;	
 			}
 			global.tips = ["[Z] - Confirm"];
@@ -185,6 +185,10 @@ if (playerTurn){
 					break;
 					
 				case BATTLE.flee:
+					if (bossBattle) {
+						menuDepth = -1;
+						break;
+					}
 					tryCreateTargeter(true, "Attempt to flee?");
 					textBoxTimer = 0;
 					break;

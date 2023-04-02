@@ -3,3 +3,5 @@
 for (var i = 0; i < array_length(skillMenuList); i++){
 	instance_destroy(skillMenuList[i]);
 }
+
+instance_destroy(descriptionBox);

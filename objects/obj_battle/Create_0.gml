@@ -8,8 +8,12 @@ global.playerHP = 10;
 healthBar = instance_create_layer(x, 400, 0, obj_enemyHealthBar);
 
 // load the enemy's data
-loadEnemy(getEncounteredEnemy());
-
+if (!bossBattle) {
+	loadEnemy(getEncounteredEnemy());
+}
+else {
+	loadEnemy(getForwardWallStoredValue());
+}
 
 // weaknesses
 //weaknesses = instance_create_layer(x - sprite_width/2, y - sprite_height, 0, obj_weakBubble);
@@ -141,7 +145,7 @@ function performSkill(_skill){
 							dodgeWaitCount = frameToDodgeOn;
 						} else {
 							// Create attack animation until impact
-							skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
 							dodgeWaitCount = 0;
 						}
 						
@@ -149,7 +153,7 @@ function performSkill(_skill){
 					}
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
 					
 					break;
 					
@@ -205,7 +209,7 @@ function performSkill(_skill){
 						} else {
 							// Create attack animation mid-dodge
 							if (!instance_exists(obj_skillAnimation)){
-								skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
 								frameToDodgeOn = 6969;
 							}
 						}
@@ -297,7 +301,7 @@ function performSkill(_skill){
 							dodgeWaitCount = frameToDodgeOn;
 						} else {
 							// Create attack animation until impact
-							skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite,  element: skill.element});
+							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite,  element: skill.element});
 							dodgeWaitCount = 0;
 						}
 						
@@ -305,7 +309,7 @@ function performSkill(_skill){
 					}
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
 					
 					break;
 					
@@ -357,7 +361,7 @@ function performSkill(_skill){
 						} else {
 							// Create attack animation mid-dodge
 							if (!instance_exists(obj_skillAnimation)){
-								skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
 								frameToDodgeOn = 6969;
 							}
 						}
@@ -421,7 +425,7 @@ function performSkill(_skill){
 					skillDepth = 1;
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, 1, obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
 					
 					break;
 					

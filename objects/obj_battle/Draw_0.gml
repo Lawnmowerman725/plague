@@ -19,7 +19,6 @@ if (global.enemyHP > 0){
 	}
 }
 
-
 exit;
 //draw_sprite_ext(spr_idleHud, 0, 0, 0, 1, 1, 0, #FFFFFF, 1)
 var barPercent = global.enemyHP / getEnemyStat(STATS.hp);

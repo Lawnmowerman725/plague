@@ -4,15 +4,26 @@ pX = global.xPos;
 pY = global.yPos;
 pFace = global.facing;
 
+// Wait for intro fade to be over
+if (introTimer > 0){
+	introTimer--;
+	exit;
+}
 
 // Check for dungeon event
 if (eventWall > WALL.stop) {
 	global.inBattle = true;
 	global.idleTimer = 0;
 	
-	if (eventWall == WALL.locked && global.exitOpen == false) {
-		resetAfterEvent();
-		exit;
+	if (eventWall == WALL.locked){
+		if (global.exitOpen == false) { // no key
+			resetAfterEvent();
+			exit;
+		} // if key
+		else {
+			editForwardWall(1, WALL.stairs);
+			global.exitOpen = false;
+		}
 	}
 	
 	// Open door
@@ -27,7 +38,7 @@ if (eventWall > WALL.stop) {
 	}
 	else {
 		if (!instance_exists(obj_dungeonEvent)){
-			instance_create_depth(0, 0, depth - 1, obj_dungeonEvent, {myEvent: eventWall})	
+			myEvent = instance_create_depth(0, 0, depth - 1, obj_dungeonEvent, {myEvent: eventWall})	
 		}
 	}
 	

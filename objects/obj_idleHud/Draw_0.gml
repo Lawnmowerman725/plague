@@ -7,7 +7,8 @@ draw_set_font(fnt_bigger)
 draw_set_halign(fa_right)
 draw_set_valign(fa_top)
 drawTextShadow("Floor " + string(global.dungeonFloor), global.dungeonPixelWidth - 16, 16 - hiddenOff, #FFFFFF, 1, 4, 4, #000000, 1)
-drawTextShadow("Get to the exit!", global.dungeonPixelWidth - 16, 64 - hiddenOff, #FFFFFF, 1, 4, 4, #000000, 1)
+var myMess = global.clearConditionTexts[global.clearCondition];
+drawTextShadow(myMess, global.dungeonPixelWidth - 16, 64 - hiddenOff, #FFFFFF, 1, 4, 4, #000000, 1);
 
 draw_set_font(fnt_moneyHud)
 draw_set_halign(fa_right)

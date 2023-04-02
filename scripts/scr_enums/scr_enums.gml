@@ -109,3 +109,10 @@ enum CHEST
 	index,
 	quantity
 }
+
+enum CLEAR
+{
+	none,
+	key,
+	boss
+}

@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+// update description box
+descriptionBox.myStruct = global.skillDatabase[global.player.skills[currentIndex]];
 
 // Decrease the offset value
 if (abs(offset) > 35){

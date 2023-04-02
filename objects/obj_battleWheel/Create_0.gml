@@ -9,6 +9,9 @@ wheelActions = ["Flee","Analyze","Defend","Item","Action"];
 
 wheelIndex = global.battleCursorMemory1;
 
+if (instance_exists(obj_battle)){
+	bossBattle = obj_battle.bossBattle;
+}
 /*
 function drawWheelIcons(_index, _icons, _offset = 0){
 	var myIndex = 0;
@@ -56,8 +59,8 @@ function drawWheelIcons(_index, _icons, _offset = 0){
 		
 		var drawCol = #FFFFFF;
 		// Grey out invalid icons
-		// Analyze or Item w/o items
-		if (i == 3 || (i == 1 && !hasItems())){
+		// Analyze or Item w/o items or flee during boss battle
+		if (i == 3 || (i == 1 && !hasItems()) || (i == 4 && bossBattle) ){
 			drawCol = #333333;
 		}
 		
