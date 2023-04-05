@@ -55,5 +55,5 @@ draw_set_halign(fa_right);
 if (!useable){
 	draw_set_color(#999999);
 }
-draw_text_transformed(x + (right - 4) * scale, y + (bottom - 4) * scale, "x" + string(global.consumables[$ item.myName]), scale * amountScale, scale * amountScale, 0);
+draw_text_transformed(x + (right - 3) * scale, y + (bottom - 3) * scale, "x" + string(global.consumables[$ item.myName]), scale * amountScale, scale * amountScale, 0);
 

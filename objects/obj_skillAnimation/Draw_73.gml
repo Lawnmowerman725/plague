@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+myColor = #FFFFFF;
 
 switch (element) {
 	case ELEMENTS.phys:
@@ -31,4 +32,9 @@ switch (element) {
 		break;	
 }
 
-draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, myColor, 1);
+if (fromEnemy){
+	draw_sprite_ext(sprite_index, image_index, x, y, -3.6, 3.6, 0, myColor, 1);
+}
+else {
+	draw_sprite_ext(sprite_index, image_index, x, y, 2, 2, 0, myColor, 1);
+}

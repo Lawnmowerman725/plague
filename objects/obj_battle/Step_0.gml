@@ -31,7 +31,7 @@ else {
 if (shakeTimer > 0){
 	shakeTimer--;
 	
-	if (shakePos = 0) shakePos = -15;
+	if (shakePos == 0) shakePos = -15;
 	
 	if (shakePos < 0){
 		shakePos -= 4;	
@@ -285,7 +285,40 @@ if (playerTurn){
 
 // Enemy Turn
 else {
-	playerTurn = true;	
+	//playerTurn = true;
+	switch (menuDepth) {
+		case -1:
+			
+			menuDepth = 0;
+			if (global.enemyHP <= 0){
+				battleOver = true;
+				exit;
+			}
+			
+			// create enemy turn banner
+			instance_create_layer(global.dungeonPixelWidth, 0, "Enemy", obj_enemyTurn);
+			
+			break;
+			
+		case 0:
+			// wait for banner to disappear
+			if (!instance_exists(obj_enemyTurn)){
+				menuDepth = 1;
+				// choose skill
+				selectedSkill = enemyChooseSkill(global.loadedEnemy);
+			}
+			break;
+			
+		case 1:
+			// if (performSkill(selectedSkill)) endEnemyTurn();
+			// specific move test
+			if (performSkill(5)) endEnemyTurn();
+			break;
+		
+		default:
+			endEnemyTurn();
+			break;
+	}
 }
 
 

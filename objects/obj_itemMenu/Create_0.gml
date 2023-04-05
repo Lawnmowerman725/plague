@@ -26,6 +26,10 @@ if (array_length(validItems) == 0){
 	exit;	
 }
 
+if (currentIndex > array_length(validItems)-1){
+	currentIndex = array_length(validItems)-1;
+}
+
 var selectedStruct = validItems[currentIndex];
 descriptionBox = instance_create_depth(global.dungeonPixelWidth * 0.05, global.dungeonPixelHeight * 0.7, depth - 20, obj_descriptionBox, {category : DROPS.consumables, myStruct : selectedStruct});
 

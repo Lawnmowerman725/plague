@@ -3,9 +3,9 @@
 
 //draw_sprite_ext(spr_idleHud, 0, 0, 0, 1.3, 2, 0, #FFFFFF, 1)
 
-drawHudWander(x, y+sprite_height, x+sprite_width);
+drawHudWander(x + shakePos, y+sprite_height, x+sprite_width);
 
-draw_sprite(sprite_index, image_index, x, y);
+draw_sprite(sprite_index, image_index, x + shakePos, y);
 
 // draw key
 if (global.exitOpen || keyXVel != 0){

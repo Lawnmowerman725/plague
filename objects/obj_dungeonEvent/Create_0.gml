@@ -3,6 +3,9 @@ if (myEvent == WALL.stairs) backgroundSprite = getWallSprite(PALETTE.stairs);
 
 global.tips = [];
 
+subjectX = global.dungeonPixelWidth/2;
+subjectY = global.dungeonPixelHeight*0.65;
+
 subjectSprite = pointer_null;
 
 function performEvent(){
@@ -225,6 +228,23 @@ function performEvent(){
 				case 1:
 					// wait for box to be finished
 					if (!instance_exists(obj_dungeonTextBox)){
+						return true;
+					}
+					break;
+			}
+			
+			break;
+			
+		// Shop
+		case WALL.shop:
+			
+			switch (eventPhase){
+				case 0:
+					shopKeeper.phase = 0;
+					eventPhase = 1;
+					break;
+				case 1:
+					if (shopKeeper.phase == 69){
 						return true;
 					}
 					break;

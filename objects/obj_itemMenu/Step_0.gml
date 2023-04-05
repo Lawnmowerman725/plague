@@ -25,8 +25,6 @@ if (top + height > sprite_height){
 
 // Check for input
 if (offset == 0) {
-	
-	
 	// Check for confirm input
 	if (keyboard_check_pressed(ord("Z"))){
 		if (itemMenuList[currentIndex].useable){
@@ -49,12 +47,27 @@ if (offset == 0) {
 	
 	// Check for turn input
 	if ((keyboard_check(vk_up)  || keyboard_check(ord("W"))) && currentIndex > 0){
-		currentIndex--;
-		offset = -200;
+		if (waitTimer <= 0){
+			if (waitTimer == -1) waitTimer = 12;
+			currentIndex--;
+			offset = -200;
+		}
+		else {
+			waitTimer--;
+		}	
 	}
 	else if ((keyboard_check(vk_down)  || keyboard_check(ord("S"))) && currentIndex < array_length(itemMenuList) - 1){
-		currentIndex++;
-		offset = 200;
+		if (waitTimer <= 0){
+			if (waitTimer == -1) waitTimer = 12;
+			currentIndex++;
+			offset = 200;
+		}
+		else {
+			waitTimer--;
+		}	
+	}
+	else {
+		waitTimer = -1;	
 	}
 }
 

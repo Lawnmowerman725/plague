@@ -116,3 +116,27 @@ enum CLEAR
 	key,
 	boss
 }
+
+enum BRAIN
+{
+	rando,	// 0
+	phys,	// 1
+	fire,	// 2
+	water,	// 3
+	elec,	// 4
+	ground,	// 5
+	wind,	// 6
+	holy,	// 7
+	forbid,	// 8
+	heal,	// 9
+	support,// 10
+	ailment,// 11
+	unique	// 12
+}
+
+enum SHOP
+{
+	category,
+	index,
+	price
+}

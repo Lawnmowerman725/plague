@@ -4,9 +4,6 @@ global.battleCursorMemory1 = 4;
 // test
 global.playerHP = 10;
 
-// enemy hp bar
-healthBar = instance_create_layer(x, 400, 0, obj_enemyHealthBar);
-
 // load the enemy's data
 if (!bossBattle) {
 	loadEnemy(getEncounteredEnemy());
@@ -21,6 +18,9 @@ else {
 // set my sprite
 image_index = 0;
 sprite_index = global.loadedEnemy.sprites.idle;
+
+// enemy hp bar
+healthBar = instance_create_depth(x, y - sprite_height - 10, depth-10, obj_enemyHealthBar);
 
 // in battle
 global.inBattle = true;
@@ -44,6 +44,17 @@ function tryCreateTargeter(_who, _message = ""){
 // used whenever the players turn ends
 function endPlayerTurn(){
 	playerTurn = false;
+	menuDepth = -1;
+	skillDepth = -1;
+	skillBoxOver = false;
+	totalDamage = 0;
+	oneDamage = 0;
+	turnIconCreated = false;
+	//testSkillNum++;
+}
+
+function endEnemyTurn(){
+	playerTurn = true;
 	menuDepth = -1;
 	skillDepth = -1;
 	skillBoxOver = false;
@@ -84,7 +95,31 @@ function useItem(_item){
 		global.tips = [];
 	}
 	
-	return true;	
+	switch (item.formula){
+		
+		case "HP":
+		case "UP":
+		case "HPUP":
+			switch (skillDepth){
+				case 0:
+					skillDepth = 1;
+					// create instance of item spotlight, pass in the item
+					instance_create_depth(0, 0, depth - 20, obj_itemSpotlight, {myItem: item});
+					break;
+				case 1:
+					if (!instance_exists(obj_itemSpotlight)){
+						return true;	
+					}
+					break;
+			}
+			break;
+		
+		default:
+			return true;
+			break;
+	}
+	
+	return false;
 }
 
 // holy shit
@@ -92,7 +127,9 @@ function useItem(_item){
 function performSkill(_skill){
 	if (skillDepth == -1){
 		skill = global.skillDatabase[_skill];
-		global.playerUP = round(global.playerUP - skill.cost);
+		if (playerTurn){
+			global.playerUP = round(global.playerUP - skill.cost);
+		}
 		skillDepth = 0;
 		global.tips = [];
 	}
@@ -140,12 +177,14 @@ function performSkill(_skill){
 						frameToDodgeOn -= 18;
 					
 						if (frameToDodgeOn <= 0){
-							goalDodge = -200;
+							if (playerTurn) {
+								goalDodge = -200;
+							}
 							missSFX();
 							dodgeWaitCount = frameToDodgeOn;
 						} else {
 							// Create attack animation until impact
-							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, fromEnemy: !playerTurn});
 							dodgeWaitCount = 0;
 						}
 						
@@ -153,7 +192,7 @@ function performSkill(_skill){
 					}
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, fromEnemy: !playerTurn});
 					
 					break;
 					
@@ -162,15 +201,23 @@ function performSkill(_skill){
 					if (!instance_exists(skillAnim) || skillAnim.readyForNumber){
 						
 						if (global.enemyHP > 0) {
-							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
-							instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
-							shakeTimer = 16;
+							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage, playerTurn: playerTurn});
+							instance_create_layer(x - 70, y - sprite_height * 0.5, "Instances", obj_hitSplash, {playerTurn:playerTurn});
+							if (playerTurn){
+								shakeTimer = 16;						
+							}
+							else {
+								obj_hud.shakeTimer = 16;
+								with (myBack){
+									fxTimer = 60;
+								}
+							}
 							hitSFX();
 							if (critCheck){
 								critSFX();
-								instance_create_layer(x, y - 510, "Instances", obj_criticalLabel);
+								instance_create_layer(x, y - sprite_height - 50, "Instances", obj_criticalLabel);
 								with (myBack){
-									fxTimer = 40;
+									fxTimer = 80;
 								}
 							}
 							
@@ -197,7 +244,7 @@ function performSkill(_skill){
 					
 					// Once animation hits
 					if (instance_exists(obj_skillAnimation) && skillAnim.readyForNumber){
-						instance_create_layer(x, y - 410, "Instances", obj_missLabel);
+						instance_create_layer(x, y - sprite_height - 50, "Instances", obj_missLabel);
 						skillDepth = 1.6;
 					}
 					
@@ -209,7 +256,7 @@ function performSkill(_skill){
 						} else {
 							// Create attack animation mid-dodge
 							if (!instance_exists(obj_skillAnimation)){
-								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite});
+								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, fromEnemy: !playerTurn});
 								frameToDodgeOn = 6969;
 							}
 						}
@@ -217,7 +264,9 @@ function performSkill(_skill){
 					else { // dodge happens mid-attack
 						dodgeWaitCount++;
 						if (dodgeWaitCount >= frameToDodgeOn) {
-							goalDodge = -200;
+							if (playerTurn) {
+								goalDodge = -200;
+							}
 							missSFX();
 							frameToDodgeOn = 6969;
 						}
@@ -239,7 +288,7 @@ function performSkill(_skill){
 						skillDepth = 3;
 						goalDarkness = 0;
 						// Create total display
-						instance_create_layer(x, y - 620, "Instances", obj_totalNumber, {enemyDamaged: playerTurn, myTotal: totalDamage});
+						instance_create_layer(x, y - sprite_height - 160, "Instances", obj_totalNumber, {enemyDamaged: playerTurn, myTotal: totalDamage});
 					}
 					break;
 					
@@ -296,12 +345,14 @@ function performSkill(_skill){
 						frameToDodgeOn -= 18;
 					
 						if (frameToDodgeOn <= 0){
-							goalDodge = -200;
+							if (playerTurn) {
+								goalDodge = -200;
+							}
 							missSFX();
 							dodgeWaitCount = frameToDodgeOn;
 						} else {
 							// Create attack animation until impact
-							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite,  element: skill.element});
+							skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite,  element: skill.element, fromEnemy: !playerTurn});
 							dodgeWaitCount = 0;
 						}
 						
@@ -309,7 +360,7 @@ function performSkill(_skill){
 					}
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element, fromEnemy: !playerTurn});
 					
 					break;
 					
@@ -318,13 +369,20 @@ function performSkill(_skill){
 					if (!instance_exists(skillAnim) || skillAnim.readyForNumber){
 						
 						if (global.enemyHP > 0){
-							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage});
-							shakeTimer = 16;						
-						
+							instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: oneDamage, playerTurn: playerTurn});
+							if (playerTurn){
+								shakeTimer = 16;						
+							}
+							else {
+								obj_hud.shakeTimer = 16;
+								with (myBack){
+									fxTimer = 60;
+								}
+							}
 							magicSFX();
-							instance_create_layer(x - 70, y - 230, "Instances", obj_hitSplash);
+							instance_create_layer(x - 70, y - sprite_height * 0.5, "Instances", obj_hitSplash, {playerTurn:playerTurn});
 							with (myBack){
-								fxTimer = 40;
+								fxTimer = 80;
 							}
 							if (playerTurn){
 								enemyDealDamage(oneDamage);
@@ -349,7 +407,7 @@ function performSkill(_skill){
 					
 					// Once animation hits
 					if (instance_exists(obj_skillAnimation) && skillAnim.readyForNumber){
-						instance_create_layer(x, y - 410, "Instances", obj_missLabel);
+						instance_create_layer(x, y - sprite_height - 50, "Instances", obj_missLabel);
 						skillDepth = 1.6;
 					}
 					
@@ -361,7 +419,7 @@ function performSkill(_skill){
 						} else {
 							// Create attack animation mid-dodge
 							if (!instance_exists(obj_skillAnimation)){
-								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+								skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element, fromEnemy: !playerTurn});
 								frameToDodgeOn = 6969;
 							}
 						}
@@ -369,7 +427,9 @@ function performSkill(_skill){
 					else { // dodge happens mid-attack
 						dodgeWaitCount++;
 						if (dodgeWaitCount >= frameToDodgeOn) {
-							goalDodge = -200;
+							if (playerTurn) {
+								goalDodge = -200;
+							}
 							missSFX();
 							frameToDodgeOn = 6969;
 						}
@@ -391,7 +451,7 @@ function performSkill(_skill){
 						skillDepth = 3;
 						goalDarkness = 0;
 						// Create total display
-						instance_create_layer(x, y - 620, "Instances", obj_totalNumber, {enemyDamaged: playerTurn, myTotal: totalDamage});
+						instance_create_layer(x, y - sprite_height - 160, "Instances", obj_totalNumber, {enemyDamaged: playerTurn, myTotal: totalDamage});
 					}
 					break;
 					
@@ -425,7 +485,7 @@ function performSkill(_skill){
 					skillDepth = 1;
 					
 					// Create attack animation until impact
-					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element});
+					skillAnim = instance_create_layer(x, y - sprite_height/2, "Enemy", obj_skillAnimation, {targetFrame: skill.targetFrame, spriteName: skill.mySprite, element: skill.element, fromEnemy: playerTurn});
 					
 					break;
 					
@@ -437,13 +497,19 @@ function performSkill(_skill){
 						
 						// Calculate stuffs
 						oneDamage = doRecovery((skill.powerMult <= 1), skill.powerMult, playerTurn);
+						
 						totalDamage += oneDamage;
 						
-						magicSFX();
-						
-						with (myBack){
-							fxTimer = 40;
+						// Create total display
+						if (playerTurn){
+							instance_create_layer(533, 77, "Instances", obj_healNumber, {enemyDamaged: playerTurn, myTotal: string(totalDamage), hpVal: true});
 						}
+						else {
+							instance_create_layer(x, y - sprite_height - 160, "Instances", obj_healNumber, {enemyDamaged: playerTurn, myTotal: string(totalDamage), hpVal: true});
+						}
+						
+						
+						magicSFX();
 												
 					}
 					
@@ -454,14 +520,13 @@ function performSkill(_skill){
 					if (!instance_exists(obj_flyingNumber)){
 						skillDepth = 3;
 						goalDarkness = 0;
-						// Create total display
-						instance_create_layer(x, y - 620, "Instances", obj_totalNumber, {enemyDamaged: playerTurn, myTotal: totalDamage});
+						
 					}
 					break;
 					
 				case 3:
 					// Wait for total number to disappear
-					if (!instance_exists(obj_totalNumber)){
+					if (!instance_exists(obj_healNumber)){
 						return true;
 					}
 					break;

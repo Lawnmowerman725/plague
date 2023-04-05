@@ -34,3 +34,7 @@ function hasItems(){
 	}
 	return false;	
 }
+
+function getCost(_index){
+	return global.consumableDatabase[_index].price;
+}

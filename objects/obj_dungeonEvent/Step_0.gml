@@ -20,6 +20,9 @@ switch (phase) {
 				case WALL.npc:
 					subjectSprite = spr_dungeonNPC;
 					break;
+				case WALL.shop:
+					shopKeeper = instance_create_depth(subjectX, subjectY,depth - 10, obj_shopkeeper);
+					break;
 			}
 			
 		}
@@ -48,6 +51,9 @@ switch (phase) {
 		if (fadeTimer > maxFade) {
 			phase = 4;
 			drawMySprite = false;
+			if (myEvent == WALL.shop){
+				instance_destroy(shopKeeper);	
+			}
 		}
 		break;
 		

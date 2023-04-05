@@ -57,5 +57,5 @@ if (global.playerUP < skill.cost){
 }
 
 if (skill.cost > 0){
-	draw_text_transformed(x + (right - 4) * scale, y + (bottom - 4) * scale, string(skill.cost) + " UP", scale * amountScale, scale * amountScale, 0);
+	draw_text_transformed(x + (right - 3) * scale, y + (bottom - 3) * scale, string(skill.cost) + " UP", scale * amountScale, scale * amountScale, 0);
 }

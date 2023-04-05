@@ -22,6 +22,7 @@ if (eventWall > WALL.stop) {
 		} // if key
 		else {
 			editForwardWall(1, WALL.stairs);
+			eventWall = WALL.stairs;
 			global.exitOpen = false;
 		}
 	}
