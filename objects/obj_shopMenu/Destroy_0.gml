@@ -3,5 +3,5 @@
 for (var i = 0; i < array_length(itemMenuList); i++){
 	instance_destroy(itemMenuList[i]);
 }
-
+shopMoneyHud.goBack = true;
 instance_destroy(descriptionBox);

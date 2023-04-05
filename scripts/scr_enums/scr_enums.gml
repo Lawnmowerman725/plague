@@ -140,3 +140,10 @@ enum SHOP
 	index,
 	price
 }
+
+enum PAUSE
+{
+	resume,
+	items,
+	skills
+}

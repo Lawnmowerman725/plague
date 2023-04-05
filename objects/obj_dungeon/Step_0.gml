@@ -10,6 +10,10 @@ if (introTimer > 0){
 	exit;
 }
 
+if (instance_exists(obj_pauseMenu)) {
+	exit;
+}
+
 // Check for dungeon event
 if (eventWall > WALL.stop) {
 	global.inBattle = true;
@@ -151,6 +155,12 @@ if (global.turnAnimation != 0){
 	exit;
 	
 	
+}
+
+// pause
+if (!global.inBattle && keyboard_check_pressed(vk_enter)) {
+	instance_create_depth(0, 0, depth - 10, obj_pauseMenu);
+	exit;
 }
 
 // Movement and turning

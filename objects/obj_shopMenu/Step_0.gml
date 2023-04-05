@@ -33,6 +33,12 @@ if (offset == 0) {
 			// first subtract cost
 			global.dungeonMoney = round(global.dungeonMoney - global.dungeonShop[currentIndex][SHOP.price]);
 			
+			instance_create_layer(global.dungeonPixelWidth/2, global.dungeonPixelHeight/2, "Instances", obj_flyingNumber, {myNumber: global.dungeonShop[currentIndex][SHOP.price], playerTurn: false, shopNumber: true});
+			instance_create_layer(350, 510, "Instances", obj_hitSplash, {playerTurn: true});
+			shopMoneyHud.shakeTimer = 16;
+			
+			
+			
 			// then give item
 			switch (shopItemCategory(currentIndex)){
 				case DROPS.consumables:

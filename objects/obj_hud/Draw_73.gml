@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//draw_sprite_ext(spr_idleHud, 0, 0, 0, 1.3, 2, 0, #FFFFFF, 1)
+//draw_sprite_ext(spr_idleHud, 0, 0, 0, 1.2, 2, 0, #FFFFFF, 1)
 
 drawHudWander(x + shakePos, y+sprite_height, x+sprite_width);
 

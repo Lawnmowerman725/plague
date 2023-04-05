@@ -39,3 +39,6 @@ for (var i = 0; i < array_length(global.dungeonShop); i++){
 		var myY = yPositionFormula(i);
 		array_push(itemMenuList, instance_create_layer(xPositionFormula(myY), myY, "Enemy", obj_shopMenuBlock, {myIndex: i, shopArr: global.dungeonShop[i], item: shopItemStruct(i)}));
 }
+
+// create shop menu
+shopMoneyHud = 	instance_create_depth(0, 560, depth - 10, obj_shopMoneyHud);

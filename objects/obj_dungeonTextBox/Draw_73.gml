@@ -14,4 +14,4 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 var currentText = string_copy(messageArr[currentBox], 0, floor(amountOfChars));
-draw_text_ext_transformed(x, y, currentText, 54, sprite_width * 0.85, 0.8, 0.8, 0);
+draw_text_ext_transformed(x, y, currentText, 60, sprite_width * 0.85, 0.8, 0.8, 0);

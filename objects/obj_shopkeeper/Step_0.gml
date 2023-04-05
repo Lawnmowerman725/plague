@@ -16,7 +16,7 @@ switch (phase){
 		// wait for box to be finished
 		if (!instance_exists(obj_dungeonTextBox)){
 			phase = 2;
-			// create shop menu
+			
 			instance_create_depth(global.dungeonPixelWidth, 0, depth - 10, obj_shopMenu, {creatorID: id, currentIndex: 0});
 		}
 		break;
@@ -25,6 +25,7 @@ switch (phase){
 		// wait for shop menu to disappear
 		if (!instance_exists(obj_shopMenu)){
 			phase = 3;	
+			
 		}
 		break;
 		

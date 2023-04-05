@@ -40,28 +40,25 @@ function itemColor(){
 		case "HPUP":
 		case "HP":
 			myColor = ITEM.hp;
-			useable = true;
 			break;
 		
 		case "REVIVE":
 			myColor = ITEM.misc;
-			useable = false;
 			break;
 		
 		case "UP":
 			myColor = ITEM.up;
-			useable = true;
 			break;
 		
 		case "SELL":
 			myColor = ITEM.money;
-			useable = false;
 			break;
 	}	
 }
 
 function useableCheck(){
-	useable = shopArr[SHOP.price] <= global.dungeonMoney;
+	
+	useable = (shopArr[SHOP.price] <= global.dungeonMoney);
 	if (useable && shopArr[SHOP.category] == DROPS.skills){
 		useable = !array_contains(global.player.skills, shopArr[SHOP.index]);
 	}
