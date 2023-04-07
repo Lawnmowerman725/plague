@@ -17,12 +17,17 @@ switch (phase){
 		
 		draw_text(global.dungeonPixelWidth * 0.5, global.dungeonPixelHeight * 0.18, "- Paused -")
 		
-		draw_set_color(#DDDDDD);
+		
 		draw_set_halign(fa_left);
 		
 		var startingY = global.dungeonPixelHeight * 0.6 - ((array_length(pauseOptions)-1)/2 * optionSpacing);
 		
 		for (var i = 0; i < array_length(pauseOptions); i++){
+			draw_set_color(#DDDDDD);
+			
+			if (i == PAUSE.items && !itemCheck){
+				draw_set_color(#555555);
+			}
 			
 			draw_text_transformed(left, startingY, pauseOptions[i], 0.8, 0.8, 0);
 			

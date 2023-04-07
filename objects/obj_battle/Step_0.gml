@@ -261,7 +261,7 @@ if (playerTurn){
 					break;
 					
 				case BATTLE.item:
-					if (useItem(item)) endPlayerTurn();
+					if (useItem()) endPlayerTurn();
 					break;
 				
 				case BATTLE.flee:

@@ -28,3 +28,7 @@ elementColors = [
 ];
 
 scale = getScale(y);
+
+if (pauseMenu){
+	useable = skill.formula == "HEAL"; 	
+}

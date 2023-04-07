@@ -8,4 +8,6 @@ pauseOptions = [
 	"Skills"
 ];
 
+itemCheck = hasItems();
+
 left = global.dungeonPixelWidth * 0.43;

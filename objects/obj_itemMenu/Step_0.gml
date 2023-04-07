@@ -2,6 +2,14 @@
 // update description box
 descriptionBox.myStruct = validItems[currentIndex];
 
+if (skillDepth >= 0){
+	// execute item
+	if (useItem()) {
+		skillDepth = -1;
+	}
+	exit;	
+}
+
 // Decrease the offset value
 if (abs(offset) > 35){
 	offset -= round(35 * sign(offset));
@@ -27,11 +35,19 @@ if (top + height > sprite_height){
 if (offset == 0) {
 	// Check for confirm input
 	if (keyboard_check_pressed(ord("Z"))){
-		if (itemMenuList[currentIndex].useable){
-			creatorID.item = validItems[currentIndex];
-			creatorID.itemMemory = currentIndex;
-			creatorID.menuDepth = 3;
-			instance_destroy(id);
+		if (itemMenuList[currentIndex].useable && hasItem(validItems[currentIndex].myName)){
+			
+			if (!pauseMenu){
+				creatorID.item = validItems[currentIndex];
+				creatorID.itemMemory = currentIndex;
+				creatorID.menuDepth = 3;
+				instance_destroy(id);
+			}
+			else {
+				// pause menu stuff	
+				item = validItems[currentIndex];
+				useItem();
+			}
 			exit;
 		}
 	}

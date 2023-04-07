@@ -52,8 +52,8 @@ draw_text_transformed(x + left * scale, y + (bottom - 4) * scale, skill.myName, 
 
 // Draw normal text for up cost
 draw_set_halign(fa_right);
-if (global.playerUP < skill.cost){
-	draw_set_color(#999999);
+if (global.playerUP < skill.cost || (pauseMenu && !useable)){
+	draw_set_color(#777777);
 }
 
 if (skill.cost > 0){

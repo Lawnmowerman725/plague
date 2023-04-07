@@ -8,6 +8,8 @@ if (array_length(skillMenuList) <= 5) exit;
 draw_sprite_part_ext(sprite_index, image_index, 0, top, sprite_width, height, x-sprite_width, top, 1, 1, #000000, 0.2);
 
 // draw weak or strong icon
+if (pauseMenu) exit;
+
 var attackElem = global.skillDatabase[global.player.skills[currentIndex]].element;
 if (attackElem < 8){
 	// Weak

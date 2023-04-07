@@ -88,7 +88,7 @@ function determineItemTarget(_item){
 	return playerTarget;
 }
 
-function useItem(_item){
+function useItem(){
 	if (skillDepth == -1){
 		alterItemCount(item.myName, -1);
 		skillDepth = 0;

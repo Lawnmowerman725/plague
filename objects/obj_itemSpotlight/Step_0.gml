@@ -42,6 +42,11 @@ switch (phase){
 				// Create total display
 				instance_create_depth(533, 147, depth-10, obj_healNumber, {enemyDamaged: true, myTotal: string(total), hpVal: false});
 				break;
+				
+			case "HEAL":
+				total = doRecovery((myItem.powerMult <= 1), myItem.powerMult, true);
+				// Create total display
+				instance_create_depth(533, 77, depth-10, obj_healNumber, {enemyDamaged: true, myTotal: string(total), hpVal: true});
 		}
 		phase = 2;
 		break;

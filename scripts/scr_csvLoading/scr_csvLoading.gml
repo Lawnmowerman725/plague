@@ -292,7 +292,7 @@ function createConsumableDatabase(){
 		array_push(itemData, newItem);
 		
 		// Add to inventory with count
-		variable_struct_set(global.consumables, newItem.myName, 1);
+		variable_struct_set(global.consumables, newItem.myName, 0);
 	}
 	
 	ds_grid_destroy(dsGrid);

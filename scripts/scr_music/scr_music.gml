@@ -1,19 +1,24 @@
 //audio_master_gain(100);
 
 function playBattleTheme(){
-	//audio_play_sound(snd_sewerBattle, 10, true);
+	audio_play_sound(global.musicBattle, 10, true);
+}
+
+function playBossTheme(){
+	audio_play_sound(global.musicBoss, 10, true);
 }
 
 function playDungeonTheme(){
-	//audio_play_sound(snd_dungeonTheme, 10, true);
+	audio_play_sound(global.musicDungeon, 10, true);
 }
 
 function stopBattleTheme(){
-	audio_stop_sound(snd_sewerBattle);
+	audio_stop_sound(global.musicBattle);
+	audio_stop_sound(global.musicBoss);
 }
 
 function stopDungeonTheme(){
-	audio_stop_sound(snd_dungeonTheme);
+	audio_stop_sound(global.musicDungeon);
 }
 
 function hitSFX(){

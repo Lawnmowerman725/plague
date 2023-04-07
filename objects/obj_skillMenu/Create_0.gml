@@ -16,5 +16,36 @@ descriptionBox = instance_create_depth(global.dungeonPixelWidth * 0.05, global.d
 
 for (var i = 0; i < array_length(global.player.skills); i++){
 		var myY = yPositionFormula(i);
-		array_push(skillMenuList, instance_create_layer(xPositionFormula(myY), myY, "Enemy", obj_skillMenuBlock, {myIndex: i, skill: global.skillDatabase[global.player.skills[i]]}));
+		array_push(skillMenuList, instance_create_layer(xPositionFormula(myY), myY, "Enemy", obj_skillMenuBlock, {myIndex: i, skill: global.skillDatabase[global.player.skills[i]], pauseMenu: pauseMenu}));
+}
+
+function performSkill(){
+	if (skillDepth == -1){
+		global.playerUP = round(global.playerUP - skill.cost);
+		skillDepth = 0;
+	}
+	
+	switch (skill.formula){
+		
+		case "HEAL":
+			switch (skillDepth){
+				case 0:
+					skillDepth = 1;
+					// create instance of item spotlight, pass in the item
+					instance_create_depth(0, 0, depth - 20, obj_itemSpotlight, {myItem: skill, skill: true});
+					break;
+				case 1:
+					if (!instance_exists(obj_itemSpotlight)){
+						return true;	
+					}
+					break;
+			}
+			break;
+		
+		default:
+			return true;
+			break;
+	}
+	
+	return false;
 }

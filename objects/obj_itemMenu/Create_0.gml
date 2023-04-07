@@ -38,3 +38,37 @@ for (var i = 0; i < array_length(validItems); i++){
 		var myY = yPositionFormula(i);
 		array_push(itemMenuList, instance_create_layer(xPositionFormula(myY), myY, "Enemy", obj_itemMenuBlock, {myIndex: i, item: validItems[i]}));
 }
+
+function useItem(){
+	if (skillDepth == -1){
+		alterItemCount(item.myName, -1);
+		skillDepth = 0;
+		global.tips = [];
+	}
+	
+	switch (item.formula){
+		
+		case "HP":
+		case "UP":
+		case "HPUP":
+			switch (skillDepth){
+				case 0:
+					skillDepth = 1;
+					// create instance of item spotlight, pass in the item
+					instance_create_depth(0, 0, depth - 20, obj_itemSpotlight, {myItem: item});
+					break;
+				case 1:
+					if (!instance_exists(obj_itemSpotlight)){
+						return true;	
+					}
+					break;
+			}
+			break;
+		
+		default:
+			return true;
+			break;
+	}
+	
+	return false;
+}

@@ -148,28 +148,28 @@ function performTileAction() {
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
-				global.encounterTimer -= random(10);
+				global.encounterTimer -= random(20);
 			}
 			break;
 		case TILE.encounter2: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
-				global.encounterTimer -= random(20);
+				global.encounterTimer -= random(30);
 			}
 			break;
 		case TILE.encounter3: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
-				global.encounterTimer -= random(30);
+				global.encounterTimer -= random(40);
 			}
 			break;
 		case TILE.encounter4: // Encounter
 			if(global.encounterTimer < 0){
 				tryEncounter();	
 			} else {
-				global.encounterTimer -= random(40);
+				global.encounterTimer -= random(50);
 			}
 			break;
 	}	

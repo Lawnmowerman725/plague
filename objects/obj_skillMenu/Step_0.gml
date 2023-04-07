@@ -1,6 +1,14 @@
 // update description box
 descriptionBox.myStruct = global.skillDatabase[global.player.skills[currentIndex]];
 
+if (skillDepth >= 0){
+	// execute item
+	if (performSkill()) {
+		skillDepth = -1;
+	}
+	exit;	
+}
+
 // Decrease the offset value
 if (abs(offset) > 35){
 	offset -= round(35 * sign(offset));
@@ -29,10 +37,18 @@ if (offset == 0) {
 	// Check for confirm input
 	if (keyboard_check_pressed(ord("Z"))){
 		if (global.playerUP >= global.skillDatabase[global.player.skills[currentIndex]].cost){
-			creatorID.selectedSkill = global.player.skills[currentIndex];
-			creatorID.skillMemory = currentIndex;
-			creatorID.menuDepth = 3;
-			instance_destroy(id);
+			if (!pauseMenu) {
+				creatorID.selectedSkill = global.player.skills[currentIndex];
+				creatorID.skillMemory = currentIndex;
+				creatorID.menuDepth = 3;
+				instance_destroy(id);
+			}
+			else {
+				skill = global.skillDatabase[global.player.skills[currentIndex]];
+				if (skill.formula == "HEAL"){
+					performSkill();
+				}
+			}
 			exit;
 		}
 	}
