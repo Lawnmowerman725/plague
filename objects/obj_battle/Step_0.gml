@@ -312,7 +312,7 @@ else {
 		case 1:
 			// if (performSkill(selectedSkill)) endEnemyTurn();
 			// specific move test
-			if (performSkill(5)) endEnemyTurn();
+			if (performSkill(selectedSkill)) endEnemyTurn();
 			break;
 		
 		default:

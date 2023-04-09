@@ -1,7 +1,6 @@
 global.inBattle = false;
-
 global.encounterTable = [
-	[[0, 80], [1, 100]]
+	[0, 10], [1, 10]
 ];
 
 function tryEncounter(){
@@ -9,15 +8,21 @@ function tryEncounter(){
 }
 
 function getEncounteredEnemy(){
-	var floorIndex = 0;
-	var encounters = global.encounterTable[floorIndex];
-	var randomVal = random(100);
-	var encounter = 0;
+	var encounters = global.encounterTable;
 	
+	var sum = 0;
 	for (var i = 0; i < array_length(encounters); i++){
-		if (encounters[i][1] > randomVal){
+		sum += encounters[i][1];
+	}
+	
+	var randomVal = random(sum);
+	var encounter = 0;
+	sum = 0;
+	for (var i = 0; i < array_length(encounters); i++){
+		sum += encounters[i][1];
+		if (sum >= randomVal){
 			encounter = encounters[i][0];
-			break;
+			i = array_length(encounters);
 		}
 	}
 	

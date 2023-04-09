@@ -15,7 +15,7 @@ global.dungeonShop = []; // similar to chests
 global.dungeonNPC = []; // stores npc messages
 
 global.musicBattle = snd_sewerBattle;
-global.musicDungeon = snd_dungeonTheme;
+global.musicDungeon = snd_sewerTheme;
 global.musicBoss = snd_sewerBattle;
 
 global.shopkeeperSprite = pointer_null;
@@ -88,9 +88,16 @@ function loadFloor(_floor){
 		
 		case 1:
 			// First floor, sewer?
+			global.musicBattle = snd_sewerBattle;
+			global.musicDungeon = snd_sewerTheme;
+			global.musicBoss = snd_sewerBattle;
+			
+			global.encounterTable = [
+				[0, 10], [1, 10], [2, 10]
+			];
 			
 			// load palette
-			
+			loadPalette(0);
 			
 			global.dungeonNPC = [
 				["Welcome to Plague!", "Your goal here is to reach the top of this dungeon.", "Each floor has an exit staircase, and this dungeon happens to have 4 floors.", "Good luck reaching the exit! And watch out for monsters!"],
@@ -131,6 +138,17 @@ function loadFloor(_floor){
 		case 2:
 		
 			global.clearCondition = CLEAR.key;
+			
+			global.musicBattle = snd_cornBattle;
+			global.musicDungeon = snd_cornTheme;
+			global.musicBoss = snd_cornBattle;
+			
+			global.encounterTable = [
+				[3, 10], [4, 10], [5, 10]
+			];
+			
+			// load palette
+			loadPalette(2);
 			
 			// Second floor, corn maze
 			global.dungeonNPC = [
@@ -191,7 +209,17 @@ function loadFloor(_floor){
 		case 3:
 		
 			// Floor 3, ?
-
+			global.musicBattle = snd_backBattle;
+			global.musicDungeon = snd_backTheme;
+			global.musicBoss = snd_backBattle;
+			
+			global.encounterTable = [
+				[6, 10], [7, 10], [8, 10]
+			];
+			
+			// load palette
+			loadPalette(11);
+			
 			global.dungeonChests = [
 				[DROPS.consumables, 5, 2], // two paste
 				[DROPS.consumables, 2, 1], // tasty jams
@@ -231,7 +259,17 @@ function loadFloor(_floor){
 			
 		case 4:
 			
+			// load palette
+			loadPalette(3);
 			global.clearCondition = CLEAR.boss;
+			
+			global.encounterTable = [
+				[9, 10], [10, 10], [11, 10]
+			];
+			
+			global.musicBattle = snd_libraryBattle;
+			global.musicDungeon = snd_libraryTheme;
+			global.musicBoss = snd_libraryBattle;
 			
 			global.dungeonChests = [
 				[DROPS.consumables, 4, 99], // two paste

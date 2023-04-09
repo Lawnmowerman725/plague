@@ -192,11 +192,14 @@ function performEvent(){
 					if (battleStart > 0){
 						battleStart--;
 						if (battleStart <= 0) {
+							
+							instance_destroy(obj_battleBackground);
+	
 							battleStart = 0;
 							// creates the text box
 							var boxMess = [
 								"You got the floor key!"
-							]
+							];
 							instance_create_depth(global.dungeonPixelWidth*0.64, 250, depth - 10, obj_dungeonTextBox, {messageArr: boxMess, creatorID: id});
 							global.tips = ["[X] - Cancel", "[Z] - Confirm"];
 							eventPhase = 5;

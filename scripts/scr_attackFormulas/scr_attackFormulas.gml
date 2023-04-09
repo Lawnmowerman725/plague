@@ -8,7 +8,7 @@ function attackFormula(_att, _def, _power, _accuracy, _crit, _userElement, _oppo
 	// Crit
 	if (_crit) {
 		_def = 0;
-		_att *= 1.3;
+		_att *= 1.5;
 	}
 	
 	// Move's Power
@@ -21,7 +21,7 @@ function attackFormula(_att, _def, _power, _accuracy, _crit, _userElement, _oppo
 	_att *= _oppoElement[_element];
 	
 	// Enemy defense
-	_att -= _def;
+	_att *= 100 / (100 + _def);
 	
 	// Random dog ass
 	_att *= 0.9 + (random(2) / 10)
