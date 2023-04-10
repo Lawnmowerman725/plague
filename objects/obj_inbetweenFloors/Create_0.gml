@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (global.dungeonFloor >= global.dungeonAmountOfFloors){
+	room_goto(rm_ending);
+}
+
 // Build floor array
 floorArr = [];
 for (var i = 0; i < 4; i++){
@@ -17,3 +21,5 @@ for (var i = 0; i < 4; i++){
 }
 
 letterSpacing = global.dungeonPixelWidth / 3;
+
+stopDungeonTheme();

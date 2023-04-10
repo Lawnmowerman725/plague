@@ -194,6 +194,7 @@ function performEvent(){
 						if (battleStart <= 0) {
 							
 							instance_destroy(obj_battleBackground);
+							playDungeonTheme();
 	
 							battleStart = 0;
 							// creates the text box

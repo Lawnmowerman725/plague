@@ -17,6 +17,14 @@ function alterItemCount(_name, _amount = 1){
 	}
 }
 
+function resetInventory(){
+	var keys = variable_struct_get_names(global.consumables);
+	for (var i = 0; i < array_length(keys); ++i) {
+		var key = keys[i];
+		global.consumables[$ key] = 0;
+	}	
+}
+
 function hasItem(_name){
 	return global.consumables[$ _name] > 0;
 }

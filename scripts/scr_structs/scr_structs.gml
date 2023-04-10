@@ -57,15 +57,15 @@ function Set(_name = "Dummy", _experience = 0, _class = 0, _portrait = 0, _equip
 // Big boi
 function PlayerFile() constructor
 {
-	myName = "Saul Goodman";
-	experience = 100;
+	myName = "Dummy";
+	experience = 0;
 	blank = true;
-	totalExperience = 20000;
+	totalExperience = 0;
 	money = 0;
 	class = 0;
-	portrait = spr_saulGoodman;
+	portrait = spr_profile1;
 	equipment = Equipment();
-	skills = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0];
+	skills = [1, 0];
 	sets = [];
 	unlocks = Unlocks();
 }

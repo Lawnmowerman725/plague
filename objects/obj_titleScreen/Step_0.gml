@@ -1,12 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (realIntro > 0) exit;
+
 if (fxTimer > 0) {
 	fxTimer--;
 	layer_enable_fx("Instances", (fxTimer > 0));
 }
 
 if (page > 0 && cloudYOff > 0){
-	cloudYOff -= 10;
+	cloudYOff -= 2;
 	if (cloudYOff < 0){
 		cloudYOff = 0;	
 	}
@@ -37,9 +39,9 @@ switch (page){
 		
 	case 2:
 		// fade to black
-		if (backAlpha < 0.5){
+		if (backAlpha < 0.65){
 			backAlpha += 0.005;
-			if (backAlpha >= 0.5){
+			if (backAlpha >= 0.65){
 				page = 3;
 				// initialize keyboard stuffs
 				nextButton = instance_create_depth(global.dungeonPixelWidth * 0.93, global.dungeonPixelHeight-50, depth - 10, obj_nextBackButton, {backButton : false});
@@ -59,5 +61,22 @@ switch (page){
 		
 		nextButton.enabled = (playerName != "");
 		backButton.enabled = false;
+		break;
+		
+	case 4:
+		// profile images
+		nextButton.enabled = true;
+		backButton.enabled = true;
+		break;
+		
+	case 5:
+		// classes
+		nextButton.enabled = true;
+		backButton.enabled = true;
+		break;
+		
+	case 6:
+		// controls
+		
 		break;
 }

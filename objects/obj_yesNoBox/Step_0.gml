@@ -12,6 +12,6 @@ if (keyboard_check_pressed(ord("X"))){
 	exit;
 }
 
-if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_down)){
+if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(ord("S"))){
 	yes = !yes;	
 }

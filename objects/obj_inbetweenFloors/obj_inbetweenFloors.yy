@@ -36,6 +36,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"letterOffset","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"offsetSpeed","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"clearConditionFade","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"60","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"pauseGeneral","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
   ],
   "solid": false,
   "spriteId": {

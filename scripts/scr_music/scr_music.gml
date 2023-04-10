@@ -1,15 +1,15 @@
 //audio_master_gain(100);
 
 function playBattleTheme(){
-	audio_play_sound(global.musicBattle, 10, true);
+	if (!audio_is_playing(global.musicBattle)) audio_play_sound(global.musicBattle, 10, true);
 }
 
 function playBossTheme(){
-	audio_play_sound(global.musicBoss, 10, true);
+	if (!audio_is_playing(global.musicBoss)) audio_play_sound(global.musicBoss, 10, true);
 }
 
 function playDungeonTheme(){
-	audio_play_sound(global.musicDungeon, 10, true);
+	if (!audio_is_playing(global.musicDungeon)) audio_play_sound(global.musicDungeon, 10, true);
 }
 
 function stopBattleTheme(){

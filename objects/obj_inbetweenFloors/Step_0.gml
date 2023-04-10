@@ -33,7 +33,14 @@ switch (phase){
 		}
 		else {
 			clearConditionFade = 0;
-			phase = 3;
+			phase = 2.5;
+		}
+		break;
+		
+	case 2.5:
+		pauseGeneral++;
+		if (pauseGeneral > 40){
+			phase = 3;	
 		}
 		break;
 		

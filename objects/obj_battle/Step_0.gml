@@ -73,7 +73,12 @@ if (beginFade){
 if (!introOver){
 	if (yOff > 0){
 		if (yOff <= 21){
-			playBattleTheme();
+			if (bossBattle){
+				playBossTheme();
+			}
+			else {
+				playBattleTheme();
+			}
 		}
 		yOff -= 30;
 		
@@ -107,9 +112,15 @@ if (battleOver) {
 			
 		case 0:
 			if (global.enemyHP <= 0){
+				// Won the battle
 				menuDepth = pushContent(global.loadedEnemy.myName + " defeated!", true, false, 0, 1);
 			}
+			else if (global.playerHP <= 0) {
+				// lost the battle
+				menuDepth = pushContent("The battle was lost...", true, false, 0, 3);
+			}
 			else {
+				// flee
 				menuDepth = -1;	
 			}
 			break;
@@ -135,7 +146,22 @@ if (battleOver) {
 				menuDepth = -1;
 			}
 			
-			break;	
+			break;
+			
+		case 3:
+			// battle lost, slowly fade out. Taken to game over room when done
+			global.tips = [];
+			loseFadeAlpha += 0.0055;
+			audio_master_gain((1 - loseFadeAlpha));
+			if (loseFadeAlpha > 1){
+				stopBattleTheme();
+				audio_master_gain(1);
+				if (bossBattle){
+					editForwardWall(0, PALETTE.doorClosed);
+				}
+				room_goto(rm_gameOver);	
+			}
+			break;
 	}
 	
 	exit;	
@@ -150,7 +176,8 @@ if (playerTurn){
 			playerDefending = false;
 			//playerTurn = false;
 			
-			if (global.enemyHP <= 0){
+			// player defeat
+			if (global.playerHP <= 0){
 				battleOver = true;
 				exit;
 			}

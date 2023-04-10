@@ -1,15 +1,13 @@
 // set position
 x = global.dungeonPixelWidth/2
 global.battleCursorMemory1 = 4;
-// test
-global.playerHP = 10;
 
 // load the enemy's data
 if (!bossBattle) {
-	loadEnemy(getEncounteredEnemy());
+	loadEnemy(getEncounteredEnemy(), global.dungeonFloor + 1);
 }
 else {
-	loadEnemy(getForwardWallStoredValue());
+	loadEnemy(getForwardWallStoredValue(), global.dungeonFloor);
 }
 
 // weaknesses

@@ -11,7 +11,7 @@ global.consumableDatabase = createConsumableDatabase();
 global.playerLevel = 1;
 global.playerHP = 13;
 global.playerUP = 12;
-global.dungeonMoney = 320;
+global.dungeonMoney = 0;
 global.playerStatMods = [1, 1, 1, 1, 1, 1, 1];
 updateLevel();
 

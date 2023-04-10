@@ -39,7 +39,7 @@ switch (page){
 		draw_set_valign(fa_center);
 		draw_set_font(fnt_biggest);
 		
-		draw_text_transformed(global.dungeonPixelWidth*0.1, 50, "What is your name?", 0.7, 0.7, 0);
+		draw_text_transformed(global.dungeonPixelWidth*0.1, 50, "What is your name?", 0.6, 0.6, 0);
 		
 		// directions
 		draw_set_halign(fa_center);
@@ -67,5 +67,88 @@ switch (page){
 		}
 		
 		
+		break;
+		
+	case 4:
+		// profile image
+		
+		// prompt
+		draw_set_alpha(1);
+		draw_set_color(#CCCCCC)
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_center);
+		draw_set_font(fnt_biggest);
+		
+		draw_text_transformed(global.dungeonPixelWidth*0.1, 50, "Please choose a profile image.", 0.6, 0.6, 0);
+		
+		// directions
+		draw_set_halign(fa_center);
+		draw_set_font(fnt_bigger);
+		draw_text(global.dungeonPixelWidth*0.5, global.dungeonPixelHeight - 50, "Click on an image to select it.");
+		
+		// highlight
+		draw_sprite(spr_selectedProfile, 0, stepX * (selectedProfile + 1), global.dungeonPixelHeight*0.5);
+		
+		break;
+		
+	case 5:
+		// classes
+		
+		// prompt
+		draw_set_alpha(1);
+		draw_set_color(#CCCCCC)
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_center);
+		draw_set_font(fnt_biggest);
+		
+		draw_text_transformed(global.dungeonPixelWidth*0.1, 50, "Please choose a class for your adventurer.", 0.6, 0.6, 0);
+		
+		// class name
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_center);
+		draw_set_color(#FFFFFF)
+		draw_set_font(fnt_biggest);
+	
+		draw_text_transformed(global.dungeonPixelWidth*0.5, global.dungeonPixelHeight*0.65, classes[selectedClass-1].myName, 1, 1, 0);
+		
+		// class description
+		draw_set_font(fnt_bigger);
+		draw_set_valign(fa_top);
+		draw_set_color(#CCCCCC)
+		draw_text_ext(global.dungeonPixelWidth*0.5, global.dungeonPixelHeight*0.75, classes[selectedClass-1].description, 40, global.dungeonPixelWidth * 0.8);
+		
+		// da line
+		draw_line_width(global.dungeonPixelWidth * 0.35, global.dungeonPixelHeight * 0.7, global.dungeonPixelWidth * 0.65, global.dungeonPixelHeight * 0.7, 8);
+		
+		
+		// directions
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_center);
+		draw_set_font(fnt_bigger);
+		draw_text(global.dungeonPixelWidth*0.5, global.dungeonPixelHeight - 50, "Click on a class to select it.");
+		
+		// highlight
+		draw_sprite(spr_selectedProfile, 0, stepX * (selectedClass), global.dungeonPixelHeight*0.34);
+		
+		break;
+		
+	case 6:
+		// controls
+		
+		// prompt
+		draw_set_alpha(1);
+		draw_set_color(#CCCCCC)
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_center);
+		draw_set_font(fnt_biggest);
+		
+		draw_text_transformed(global.dungeonPixelWidth*0.1, 50, "Controls", 0.6, 0.6, 0);
+		
+		draw_sprite(spr_controls, 0, 0, 0);
+		
+		// directions
+		draw_set_halign(fa_center);
+		draw_set_font(fnt_bigger);
+		draw_text(global.dungeonPixelWidth*0.5, global.dungeonPixelHeight - 50, "Click \"Next\" to enter the dungeon. Good luck!");
 		break;
 }
