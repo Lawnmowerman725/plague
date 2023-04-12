@@ -67,7 +67,7 @@ function enemyChooseSkill(_enemyStruct){
 	
 	while (!passTest){
 		// choose a random skill from the list
-		var selectedIndex = irandom(array_length(_skillArr));
+		var selectedIndex = _skillArr[irandom(array_length(_skillArr)-1)];
 		selectedSkill = global.skillDatabase[selectedIndex];
 		
 		var element = selectedSkill.element;

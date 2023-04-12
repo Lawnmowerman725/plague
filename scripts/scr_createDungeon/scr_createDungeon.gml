@@ -80,7 +80,7 @@ global.dungeon = [];
 function loadFloor(_floor, _refreshFloor = true){
 	
 	// make locked doors closed
-	global.exitOpen = false;
+	if (_refreshFloor) global.exitOpen = false;
 	
 	global.clearCondition = CLEAR.none;
 	
@@ -269,7 +269,7 @@ function loadFloor(_floor, _refreshFloor = true){
 			
 			global.musicBattle = snd_libraryBattle;
 			global.musicDungeon = snd_libraryTheme;
-			global.musicBoss = snd_libraryBattle;
+			global.musicBoss = snd_libraryBoss;
 			
 			global.dungeonChests = [
 				[DROPS.consumables, 4, 99], // two paste

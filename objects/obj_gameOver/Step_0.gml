@@ -78,6 +78,8 @@ switch (phase){
 				// commit
 				phase = 4;
 				global.tips = [];
+				doRecovery(true, 1, true, true);
+				doRecovery(true, 1, true, false);
 			}
 			else {
 				// do not commit. go back

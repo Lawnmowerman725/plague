@@ -8,7 +8,7 @@ function attackFormula(_att, _def, _power, _accuracy, _crit, _userElement, _oppo
 	// Crit
 	if (_crit) {
 		_def = 0;
-		_att *= 1.5;
+		_att *= 1.2;
 	}
 	
 	// Move's Power

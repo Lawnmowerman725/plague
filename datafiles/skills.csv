@@ -1,14 +1,14 @@
 Name,Element,Cost (UP),"MoveType S = Strength, M = Magic, A = Accuracy, C = Crit, D = Enemy Defense, G = Enemy Magic",Special,Power Multiplier,Base Accuracy,Check Accuracy,Base Crit,Check Crit,Rarity,Sprite Name,Target Frame,Description
 Pass,0,0,PASS,0,0,0,0,0,0,0,spr_regularAttack,7,Forfeits your turn.
 Attack,0,0,SCAD,0,100,95,5,5,20,0,spr_physicalAttack,7,A basic physical attack.
-Brute Force,0,3,SCAD,0,210,40,30,80,20,2,spr_physicalAttack,7,"Swing wildy to strike the opponent. Low accuracy, but high critical rate."
+Brute Force,0,3,SCAD,0,160,40,30,80,20,2,spr_physicalAttack,7,"Swing wildy to strike the opponent. Low accuracy, but high critical rate."
 Hawk Strike,0,3,SCAD,0,140,100,0,10,5,2,spr_physicalAttack,7,A physical attack that will never miss the opponent.
 Poke,0,1,SCAD,0,10,85,5,0,5,0,spr_physicalAttack,7,Haha funny poke move
-Ignis,1,4,MAG,0,260,90,10,0,0,0,spr_ignis,51,Burn the enemy with a potent fire spell.
-Aqua,2,4,MAG,0,240,95,5,0,0,0,spr_aqua,42,Attack the opponent with the power of water.
-Fulgur,3,3,MAG,0,210,92,5,0,0,0,spr_magicAttack,82,Scorch the opponent with searing lightning.
-Terra,4,4,MAG,0,290,80,15,0,0,0,spr_terra,41,Utilize the power of the earth to crush the enemy.
-Ventus,5,4,MAG,0,230,98,0,0,0,0,spr_ventus,38,Slash the enemy with razor-sharp winds.
-Orandi,6,4,MAG,0,250,92,8,0,0,0,spr_magicAttack,82,Damage the opponent with rays from the Holy Mother.
-Malefici,7,4,MAG,0,270,85,15,0,0,0,spr_magicAttack,82,"Damage the opponent's soul with ancient, forbidden magic."
+Ignis,1,4,MAG,0,160,90,10,0,0,0,spr_ignis,52,Burn the enemy with a potent fire spell.
+Aqua,2,4,MAG,0,140,95,5,0,0,0,spr_aqua,49,Attack the opponent with the power of water.
+Fulgur,3,3,MAG,0,120,92,5,0,0,0,spr_fulgur,55,Scorch the opponent with searing lightning.
+Terra,4,4,MAG,0,190,80,15,0,0,0,spr_terra,47,Utilize the power of the earth to crush the enemy.
+Ventus,5,4,MAG,0,130,98,0,0,0,0,spr_ventus,44,Slash the enemy with razor-sharp winds.
+Orandi,6,4,MAG,0,150,92,8,0,0,0,spr_orandi,69,Damage the opponent with rays from the Holy Mother.
+Malefici,7,4,MAG,0,170,85,15,0,0,0,spr_malefici,78,"Damage the opponent's soul with ancient, forbidden magic."
 Sana,8,3,HEAL,0,0.3,0,0,0,0,0,spr_sana,69,Recovers 30% of the user's Max HP.

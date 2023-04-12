@@ -1,14 +1,14 @@
 Name,Description,start HP,start UP,start ST,start MG,start DF,start AG,start LU,level up HP,level up UP,level up ST,level up MG,level up DF,level up AG,level up LU,skill 1,skill 2,skill 3,skill 4,skill 5,skill 6,skill 7,skill 8,skill 9,skill 10,brain,start EXP,start GOLD,level EXP,level GOLD,idle,attack,spell,damaged,defeat,att PHYS,att FIRE,att WATER,att ELEC,att GROUND,att WIND,att HOLY,att FORBID,def PHYS,def FIRE,def WATER,def ELEC,def GROUND,def WIND,def HOLY,def FORBID,item drop type,item drop,base Chance,check Chance,Rarity
-Dale,LOL!,13,12,4,2,4,2,2,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,5,5,4,7,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,6
-Biggie,LOL!,10,10,5,5,5,5,5,5,5,5,5,5,5,5,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,4,6,5,6,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,3,7,6,5,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Biggie,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,2,8,7,4,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,9,8,3,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Biggie,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,10,9,2,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,11,10,1,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Biggie,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,12,11,1,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,13,12,1,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Biggie,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,14,13,1,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,15,14,1,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
-Biggie,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,16,15,1,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
+Reanimated Rat,LOL!,13,12,4,2,4,2,2,2.5,1,2.3,1,1,2,1.5,1,2,7,-1,-1,-1,-1,-1,-1,-1,0,5,5,4,7,spr_rat,spr_rat,spr_rat,spr_rat,spr_rat,1,1,1,1,1,1,1,1,1,1.3,1,1,1,1,1,1,0,-1,0,0,6
+Biggie,LOL!,10,10,4.5,1,5,3,3,4,1,1.3,1.4,2,1.3,1,1,9,11,-1,-1,-1,-1,-1,-1,-1,0,4,6,5,6,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
+Biggie,LOL!,10,10,4.5,1,5,3,3,4,1,1.3,1.4,2,1.3,1,1,9,11,-1,-1,-1,-1,-1,-1,-1,0,4,6,5,6,spr_biggie,spr_biggie,spr_biggie,spr_biggie,spr_biggie,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
+Jack O' Fiend,LOL!,14,10,3,5,3,7,6,2.8,1,1.4,2,1.4,1.4,1.3,1,5,3,-1,-1,-1,-1,-1,-1,-1,0,15,8,6,6,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,1,1.1,1,1,1,1,1,1,1.3,0.6,1,1,1,1,1,1,0,-1,0,0,1
+Jack O' Fiend,LOL!,14,10,3,5,3,7,6,2.8,1,1.4,2,1.4,1.4,1.3,1,5,3,-1,-1,-1,-1,-1,-1,-1,0,15,8,6,6,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,1,1.1,1,1,1,1,1,1,1.3,0.6,1,1,1,1,1,1,0,-1,0,0,1
+Jack O' Fiend,LOL!,14,10,3,5,3,7,6,2.8,1,1.4,2,1.4,1.4,1.3,1,5,3,-1,-1,-1,-1,-1,-1,-1,0,15,8,6,6,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,spr_jackOFiend,1,1.1,1,1,1,1,1,1,1.3,0.6,1,1,1,1,1,1,0,-1,0,0,1
+Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,4,-1,-1,-1,-1,-1,-1,-1,-1,0,20,15,4,4,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
+Maxwell,LOL!,7,10,3,2,4.2,4,4,3.6,1,1.8,1.3,2.2,1,1,1,7,4,-1,-1,-1,-1,-1,-1,-1,0,7,20,5,7,spr_maxwell,spr_maxwell,spr_maxwell,spr_maxwell,spr_maxwell,0.9,1,1,1.13,1,1,1,1,1,1,1,0.6,1,1.25,1.95,0.7,0,-1,0,0,1
+Paid Programming,LOL!,15,10,4,2.4,3.3,4,10,4.2,1,2.1,1.7,1,1,1.8,1,7,12,-1,-1,-1,-1,-1,-1,-1,0,9,13,5.5,9,spr_tvHead,spr_tvHead,spr_tvHead,spr_tvHead,spr_tvHead,1,1,1,1,1,1,1,1,1,0.7,1.2,1.05,1.2,1,1,1,0,-1,0,0,1
+Mimic,LOL!,16,10,3,4,4,6,3,3,1,1.9,1.3,2,1,1,1,3,11,2,-1,-1,-1,-1,-1,-1,0,10,14,6,5,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,1,1,1,1,1,1,1,1.2,1.05,1.17,1.22,1,1,1,1,0.8,0,-1,0,0,1
+Mimic,LOL!,16,10,3,4,4,6,3,3,1,1.9,1.3,2,1,1,1,3,11,2,-1,-1,-1,-1,-1,-1,0,10,14,6,5,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,1,1,1,1,1,1,1,1.2,1.05,1.17,1.22,1,1,1,1,0.8,0,-1,0,0,1
+Mimic,LOL!,16,10,3,4,4,6,3,3,1,1.9,1.3,2,1,1,1,3,11,2,-1,-1,-1,-1,-1,-1,0,10,14,6,5,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,spr_bookMimic,1,1,1,1,1,1,1,1.2,1.05,1.17,1.22,1,1,1,1,0.8,0,-1,0,0,1
 Dale,LOL!,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,1,17,16,1,spr_dale,spr_dale,spr_dale,spr_dale,spr_dale,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,-1,0,0,1
