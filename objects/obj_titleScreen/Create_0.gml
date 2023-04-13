@@ -24,8 +24,8 @@ function createPage4(){
 
 function createPage5(){
 	stepX = global.dungeonPixelWidth / (array_length(classes) + 1);
-	instance_create_depth(stepX, global.dungeonPixelHeight * 0.34, depth - 10, obj_classButton, {myIndex: 1, mySprite: spr_profile1});
-	instance_create_depth(stepX * 2, global.dungeonPixelHeight * 0.34, depth - 10, obj_classButton, {myIndex: 2, mySprite: spr_profile2});
+	instance_create_depth(stepX, global.dungeonPixelHeight * 0.34, depth - 10, obj_classButton, {myIndex: 1, mySprite: spr_knight});
+	instance_create_depth(stepX * 2, global.dungeonPixelHeight * 0.34, depth - 10, obj_classButton, {myIndex: 2, mySprite: spr_mage});
 }
 
 function nextPage(){

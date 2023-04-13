@@ -138,7 +138,14 @@ function performSkill(_skill){
 			
 			// Show move name async
 			if (!skillBoxOver){
-				pushContent(skill.myName, false, false);
+				var moveName = "";
+				if (playerTurn) {
+					moveName += global.player.myName;
+				} else {
+					moveName += global.loadedEnemy.myName;
+				}
+				moveName += " used " + skill.myName + "!"
+				pushContent(moveName, false, false);
 				handleTextBoxTimer(70, false, 0, false);
 				goalDarkness = 0.4;
 				if (textBoxTimer < 60) return false;
@@ -308,7 +315,14 @@ function performSkill(_skill){
 			
 			// Show move name async
 			if (!skillBoxOver){
-				pushContent(skill.myName, false, false);
+				var moveName = "";
+				if (playerTurn) {
+					moveName += global.player.myName;
+				} else {
+					moveName += global.loadedEnemy.myName;
+				}
+				moveName += " used " + skill.myName + "!"
+				pushContent(moveName, false, false);
 				handleTextBoxTimer(70, false, 0, false);
 				goalDarkness = 0.4;
 				if (textBoxTimer < 60) return false;
@@ -471,7 +485,14 @@ function performSkill(_skill){
 			
 			// Show move name async
 			if (!skillBoxOver){
-				pushContent(skill.myName, false, false);
+				var moveName = "";
+				if (playerTurn) {
+					moveName += global.player.myName;
+				} else {
+					moveName += global.loadedEnemy.myName;
+				}
+				moveName += " used " + skill.myName + "!"
+				pushContent(moveName, false, false);
 				handleTextBoxTimer(70, false, 0, false);
 				goalDarkness = 0.4;
 				if (textBoxTimer < 60) return false;

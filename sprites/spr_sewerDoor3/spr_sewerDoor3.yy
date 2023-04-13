@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_sewerDoor3",
-  "bbox_bottom": 0,
+  "bbox_bottom": 225,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 282,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"de2a81c0-702a-4b55-a855-f9e5cba9e5bf",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e2225665-b25f-483f-8969-2526aaea9313",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 226,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"aa39a9a1-98ef-4ae3-b71a-6f72333f3efd","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"27544f62-f218-43cd-b2cb-c8a13128b1a7","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"de2a81c0-702a-4b55-a855-f9e5cba9e5bf","path":"sprites/spr_sewerDoor3/spr_sewerDoor3.yy",},},},"Disabled":false,"id":"cbff7568-c350-4ab5-8819-7bcea28cedff","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e2225665-b25f-483f-8969-2526aaea9313","path":"sprites/spr_sewerDoor3/spr_sewerDoor3.yy",},},},"Disabled":false,"id":"ee4641b3-2581-49b5-9fff-47ecc7d95671","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 64,
+  "width": 283,
 }

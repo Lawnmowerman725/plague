@@ -33,7 +33,8 @@ switch (page){
 	case 1.5:
 		initialWait -= 1;
 		if (initialWait < 0){
-			page = 2;	
+			page = 2;
+			audio_play_sound(snd_ominous, 10, true);
 		}
 		break;
 		

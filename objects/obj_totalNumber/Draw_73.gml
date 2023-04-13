@@ -12,5 +12,5 @@ draw_set_color(#DDDDDD);
 draw_line_width(x - 180, y + 35 + offset, x + 180, y + 35 + offset, 4);
 
 draw_set_alpha(1);
-drawTextShadow("Total: " + string(myTotal), x, y+offset, #DDDDFF, 1-offset/40, 3, 3, #000000, 1-offset/40);
+drawTextShadow("Damage: " + string(myTotal), x, y+offset, #DDDDFF, 1-offset/40, 3, 3, #000000, 1-offset/40);
 draw_set_alpha(1);

@@ -1,4 +1,4 @@
 Name,Description,start HP,start UP,start ST,start MG,start DF,start AG,start LU,level up HP,level up UP,level up ST,level up MG,level up DF,level up AG,level up LU,skill 1,skill 2,skill 3,perk 1,perk 2,perk 3
 Unemployed,LOL!,10,12,5,2,3,5,1,3,2,1,2,1,1,1,-1,-1,-1,-1,-1,-1
 Knight,"Specializes in strong-hitting physical attacks, with great defensive capabilities. Not the best when it comes to using and defending against magical attacks.",18,13,8,5,7,4,4,4,2,2,1,2,1,1,-1,-1,-1,-1,-1,-1
-Mage,"After years of studying the arcane arts, the Mage makes great use of potent, damaging spells. On the other hand, the years spent on learning magic did not correlate to the best defensive capabilities.",16,20,7,9,6,7,3,3,3,1,2,1.5,1.5,1,-1,-1,-1,-1,-1,-1
+Mage,"Excels at dealing damage with magical attacks, but not made of the most durable material.",16,20,7,9,6,7,3,3,3,1,2,1.5,1.5,1,-1,-1,-1,-1,-1,-1

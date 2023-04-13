@@ -13,15 +13,15 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"96088693-fec4-41ae-aa50-36c28852e12e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"66772011-1e5d-4e8b-bcf0-9e8d7aadcad9",},
   ],
   "gridX": 20,
   "gridY": 15,
   "height": 226,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0d0f19d1-d026-4cc5-a337-aa9471459afd","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":false,},
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"74f66d3a-c532-4b3c-b458-056f6fdc3a6a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bcbd80e0-acb9-419a-8a90-c0046bef2888","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":39.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ea1fa696-3a20-483b-b130-215c723ea4ac","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -55,7 +55,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"96088693-fec4-41ae-aa50-36c28852e12e","path":"sprites/spr_sewerFloor1/spr_sewerFloor1.yy",},},},"Disabled":false,"id":"7ffc3884-98b9-4be7-af1c-288636862276","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"66772011-1e5d-4e8b-bcf0-9e8d7aadcad9","path":"sprites/spr_sewerFloor1/spr_sewerFloor1.yy",},},},"Disabled":false,"id":"b65f62da-7385-4a2c-89a0-dd7822f2c1c0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

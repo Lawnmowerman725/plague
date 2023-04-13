@@ -255,13 +255,12 @@ if (playerTurn){
 			switch (menuCategory){
 				
 				case BATTLE.skill:
-					tryCreateTargeter(determineTarget(global.skillDatabase[selectedSkill]), "Use " + global.skillDatabase[selectedSkill].myName + "?");
-					textBoxTimer = 0;
+					if (performSkill(selectedSkill)) endPlayerTurn();
 					break;
 					
 				case BATTLE.item:
-					tryCreateTargeter(determineItemTarget(item), "Use " + item.myName + "?");
-					textBoxTimer = 0;
+					if (useItem()) endPlayerTurn();
+					//textBoxTimer = 0;
 					break;
 				
 				case BATTLE.defend:

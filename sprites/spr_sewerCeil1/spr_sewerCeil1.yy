@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_sewerCeil1",
-  "bbox_bottom": 225,
+  "bbox_bottom": 224,
   "bbox_left": 0,
-  "bbox_right": 282,
+  "bbox_right": 224,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,15 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"96088693-fec4-41ae-aa50-36c28852e12e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"78b0e5b6-c1ad-4203-a1dd-c317f7aebc95",},
   ],
   "gridX": 20,
   "gridY": 15,
-  "height": 226,
+  "height": 225,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c97ecfd6-ad1e-46cd-9fc0-a239081cf87f","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":false,},
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"74f66d3a-c532-4b3c-b458-056f6fdc3a6a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fdc25fe9-a995-47d7-a05a-bd33780bb2a8","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -55,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"96088693-fec4-41ae-aa50-36c28852e12e","path":"sprites/spr_sewerCeil1/spr_sewerCeil1.yy",},},},"Disabled":false,"id":"90daa8b6-1626-4735-8c0e-3f686d975d16","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"78b0e5b6-c1ad-4203-a1dd-c317f7aebc95","path":"sprites/spr_sewerCeil1/spr_sewerCeil1.yy",},},},"Disabled":false,"id":"fb7d3d69-b895-4900-b67b-ae01041786ea","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -71,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 283,
+  "width": 225,
 }

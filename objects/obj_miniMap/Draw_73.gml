@@ -10,17 +10,26 @@ for (cX = -4; cX < 5; cX += 2){
 		if (cX + global.xPos > 0 && cY + global.yPos > 0 && cY + global.yPos < array_length(global.dungeon) && cX + global.xPos < array_length(global.dungeon[cY + global.yPos]))
 		{
 			ofValue = false;
+			eventSpace = false;
 			fourWalls = [global.dungeon[cY + global.yPos - 1][cX + global.xPos][1], global.dungeon[cY + global.yPos][cX + global.xPos + 1][1], global.dungeon[cY + global.yPos + 1][cX + global.xPos][1], global.dungeon[cY + global.yPos][cX + global.xPos  - 1][1]];
 			
 			for (var i = 0; i < 4; i++){
-				if (fourWalls[i] != 1){
+				if (fourWalls[i] > 1) {
+					eventSpace = true;
+				}
+				if (fourWalls[i] == 0){
 					ofValue = true;
 					break;					
 				}				
 			}
 			
-			if (ofValue) {
-				draw_sprite(spr_miniMapLand, 0, x + ((2 + cX/2) * siez), y + ((2+cY/2) * siez));
+			if (ofValue || eventSpace) {
+				if (eventSpace && !ofValue) {
+					draw_sprite(spr_miniMapEvent, 0, x + ((2 + cX/2) * siez), y + ((2+cY/2) * siez));
+				}
+				else {
+					draw_sprite(spr_miniMapLand, 0, x + ((2 + cX/2) * siez), y + ((2+cY/2) * siez));
+				}
 				
 				if (fourWalls[0] == 1){
 					draw_sprite(spr_miniMapHoriWall, 0, x + ((2+cX/2) * siez), y + ((2+cY/2) * siez));				

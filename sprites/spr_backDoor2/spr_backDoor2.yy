@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_backDoor2",
-  "bbox_bottom": 0,
+  "bbox_bottom": 225,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 282,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e7fab368-0219-4079-989c-c4be8666f8fe",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b68d41cc-eac9-43c8-86ca-1c3e93e3a4f2",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 226,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"cf890fc2-932f-4d92-9dcf-3e55b7160e9c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e2eb0c50-74c1-4ee8-9711-f10d262bdf94","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e7fab368-0219-4079-989c-c4be8666f8fe","path":"sprites/spr_backDoor2/spr_backDoor2.yy",},},},"Disabled":false,"id":"83953abd-3c5d-4455-9fe7-387d7eb2ed7b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b68d41cc-eac9-43c8-86ca-1c3e93e3a4f2","path":"sprites/spr_backDoor2/spr_backDoor2.yy",},},},"Disabled":false,"id":"ac7dc415-f6a7-4276-810a-3832b2f6d582","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 64,
+  "width": 283,
 }

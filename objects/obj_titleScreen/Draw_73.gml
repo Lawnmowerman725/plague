@@ -8,6 +8,7 @@ if (introTimer > 0){
 	introTimer++;
 }
 if (introTimer > 60){
+	audio_stop_sound(snd_ominous);
 	room_goto(rm_floorTransition);
 }
 
