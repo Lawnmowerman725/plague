@@ -9,7 +9,7 @@ draw_set_font(fnt_battleBox);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 	
-draw_text_ext(x, y, string(content), 28, 560);
+draw_text_ext(x, y, string(content), 48, 1060);
 
 
 if (array_length(commands) > 0){

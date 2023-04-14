@@ -100,8 +100,8 @@ function loadFloor(_floor, _refreshFloor = true){
 			loadPalette(0);
 			
 			global.dungeonNPC = [
-				["Welcome to Plague!", "Your goal here is to reach the top of this dungeon.", "Each floor has an exit staircase, and this dungeon happens to have 4 floors.", "Good luck reaching the exit! And watch out for monsters!"],
-				["Each floor can have a variety of treasures on it.", "Opening chests can even result in learning new skills for battle!", "It might be wise to loot an entire floor before moving on to the next."]
+				["Welcome to Plague.", "Your goal here is to reach the top of this tower.", "Each floor has an exit staircase, and this tower happens to have 4 floors.", "Be careful, and watch out for monsters..."],
+				["Each floor can have a variety of treasures on it.", "It might be wise to loot an entire floor before moving on to the next."]
 			];
 			global.dungeonChests = [
 				[DROPS.consumables, 0, 4], // four potions
@@ -152,9 +152,9 @@ function loadFloor(_floor, _refreshFloor = true){
 			
 			// Second floor, corn maze
 			global.dungeonNPC = [
-				["On some floors, opening the way to the exit may require some work.", "On this floor, the door to the exit is locked.", "You'll need to find the key somewhere on this floor before moving on."],
-				["Sometimes, these dungeons will house false walls.", "False walls look exactly like your everyday wall, but you can actually walk right through them.", "False walls won't appear as walls on the map, so pay attention."],
-				["It's always possible to use items and skills outside of battle.", "By pressing ENTER, you can bring up the pause menu.", "From there, you can use healing items and skills at your heart's content."]
+				["On some floors, opening the way to the exit will require some work.", "This floor's exit is locked, so you'll need to find the key before progressing."],
+				["Sometimes, these dungeons will house false walls.", "False walls can be walked through seemlessly, and they usually hide fantastic treasures.", "False walls won't appear as walls on the map, so pay attention."],
+				["It's always possible to use items and skills outside of battle.", "By pressing ENTER, you can bring up the pause menu.", "From there, you can use healing items and skills to your heart's content."]
 			];
 			global.dungeonChests = [
 				[DROPS.key, 0, 1], // key
@@ -300,7 +300,7 @@ function loadFloor(_floor, _refreshFloor = true){
 				[ [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 2, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 1, 1], [ 5, 7, 0], [ 9, 4], [ 5, 7, 1], [ 2, 1]],
 				[      [],    [ 0, 1],      [],    [ 2, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 0],      [],    [ 1, 1],      [],    [ 0, 0],      []],
 				[ [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 1, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 0, 0], [ 5, 7, 1], [ 1, 1]],
-				[      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 9,80],      [],    [ 2, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      []],
+				[      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],   [ 9,812],      [],    [ 2, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 1, 1],      [],    [ 1, 1],      []],
 				[ [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 1, 1], [ 5, 7, 0], [ 1, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1], [ 0, 0, 0], [ 0, 1]],
 				[      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 1, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      [],    [ 0, 1],      []]
 			];

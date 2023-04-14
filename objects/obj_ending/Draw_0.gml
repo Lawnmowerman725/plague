@@ -103,7 +103,7 @@ switch (phase){
 		draw_text_transformed(global.dungeonPixelWidth * 0.75 - checkerHOff, global.dungeonPixelHeight * 0.68, "Lead Actor", 0.8, 0.8, 0);
 		draw_line_width(global.dungeonPixelWidth * 0.65 - checkerHOff, global.dungeonPixelHeight* 0.73, global.dungeonPixelWidth * 0.85 - checkerHOff, global.dungeonPixelHeight* 0.73, 6);
 		// that guy
-		draw_text_transformed(global.dungeonPixelWidth * 0.75 - checkerHOff, global.dungeonPixelHeight * 0.8, "Maximillian Yagoobian Brushel Chu the Third", 0.7, 0.7, 0);
+		draw_text_transformed(global.dungeonPixelWidth * 0.75 - checkerHOff, global.dungeonPixelHeight * 0.8, "Maxwell Chu", 0.7, 0.7, 0);
 		
 		break;
 

@@ -4,6 +4,7 @@ if (drawMySprite && battleStart <= 50) {
 	draw_self();
 	
 	if (subjectSprite != pointer_null){
+		if (subjectSprite == spr_author) draw_sprite(spr_enemyShadow, 0, subjectX, subjectY);
 		draw_sprite(subjectSprite, 0, subjectX, subjectY);
 	}
 }

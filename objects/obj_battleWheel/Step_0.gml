@@ -9,6 +9,10 @@ if (wheelOffset == 0) {
 	
 	// Check for confirm input
 	if (keyboard_check_pressed(ord("Z"))){
+		if (wheelIndex == BATTLE.item && !hasItems()) {
+			exit;
+		}
+		
 		creatorID.menuCategory = wheelIndex;
 		creatorID.menuDepth = 1;	
 		global.battleCursorMemory1 = wheelIndex;

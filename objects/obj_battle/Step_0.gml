@@ -1,6 +1,11 @@
 
 pulseTimer = ((pulseTimer + 5/6)) % 20;
 
+// text box
+if (instance_exists(obj_dungeonTextBox)){
+	exit;
+}
+					
 // For darkening background
 if (goalDarkness != darkness){
 	if (goalDarkness > darkness){
@@ -89,6 +94,15 @@ if (!introOver){
 		menuDepth = pushContent(global.loadedEnemy.myName + " appeared!", true);
 		if (menuDepth == 1){
 			introOver = true;
+			if (bossBattle) {
+				// creates the text box
+				var boxMess = [
+					"I must commend you for making it this far, " + global.player.myName + ".",
+					"However, I cannot allow you to leave my tower alive.",
+					"Come at me... if you dare!"
+				]
+				instance_create_depth(global.dungeonPixelWidth*0.64, 250, depth - 10, obj_dungeonTextBox, {messageArr: boxMess, creatorID: id});
+			}
 			menuDepth = -1;
 		}
 	
@@ -199,7 +213,7 @@ if (playerTurn){
 					}
 					break;
 					
-				case BATTLE.item:
+				case BATTLE.item:					
 					if (!instance_exists(obj_itemMenu)){
 						global.tips = ["[X] - Cancel", "[Z] - Confirm"];
 						instance_create_layer(global.dungeonPixelWidth, 0, "Instances", obj_itemMenu, {creatorID: id, currentIndex: itemMemory});

@@ -18,7 +18,8 @@ switch (phase) {
 					subjectSprite = spr_chestOpened;
 					break;
 				case WALL.npc:
-					subjectSprite = spr_dungeonNPC;
+					subjectSprite = spr_author;
+					subjectY = global.dungeonPixelHeight*0.9;
 					break;
 				case WALL.shop:
 					shopKeeper = instance_create_depth(subjectX, subjectY,depth - 10, obj_shopkeeper);
