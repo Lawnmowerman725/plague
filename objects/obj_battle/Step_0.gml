@@ -127,7 +127,7 @@ if (battleOver) {
 		case 0:
 			if (global.enemyHP <= 0){
 				// Won the battle
-				menuDepth = pushContent(global.loadedEnemy.myName + " defeated!", true, false, 0, 1);
+				menuDepth = pushContent(global.loadedEnemy.myName + " was defeated!", true, false, 0, 1);
 			}
 			else if (global.playerHP <= 0) {
 				// lost the battle

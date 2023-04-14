@@ -55,6 +55,9 @@ switch (phase) {
 			if (myEvent == WALL.shop){
 				instance_destroy(shopKeeper);	
 			}
+			if (myEvent == WALL.boss){
+				editForwardWall(1, WALL.stop);	
+			}
 		}
 		break;
 		
